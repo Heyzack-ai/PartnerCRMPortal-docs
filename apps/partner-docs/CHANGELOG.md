@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-05-07
+
+- Added a root multi-stage `Dockerfile` for the monorepo that installs workspace dependencies, builds `@heyzack/partner-docs`, and serves the docs app on port `3000`.
+- Added a root `.dockerignore` to keep local dependencies, build output, and editor metadata out of the Docker build context.
+
 ## 2026-05-04
 
 - Docs switcher: each app now fixes its own site identity (`partner` vs `crm`) so the active tab is never a link to localhost because of a wrong or copied `NEXT_PUBLIC_DOCS_SITE`.
