@@ -1,0 +1,45 @@
+---
+title: "S’authentifier sur le CRM HeyZack"
+description: "Connexion au CRM, obtention d’un jeton Bearer pour l’API, expiration du jeton et erreurs d’authentification courantes."
+---
+
+Le CRM HeyZack utilise une authentification par e-mail et mot de passe dans le navigateur. Pour l’API, chaque requête doit inclure un jeton Bearer dans l’en-tête `Authorization`. Cette page décrit la connexion, l’usage du jeton et les erreurs fréquentes.
+
+## Connexion au CRM
+
+Ouvrez la page de connexion, saisissez e-mail et mot de passe, puis **Connexion**.
+
+Mot de passe oublié : **Mot de passe oublié** sur la page de connexion, puis votre adresse e-mail pour recevoir un lien de réinitialisation.
+
+<Tip>
+  Sans compte, demandez à un administrateur d’en créer un dans **Paramètres → Créer un utilisateur**.
+</Tip>
+
+## Utilisation de l’API
+
+Toutes les requêtes API doivent inclure un jeton Bearer valide :
+
+```http
+Authorization: Bearer <votre-jeton>
+```
+
+Le jeton est émis à la connexion au portail. Pour les clients API ou scripts, récupérez-le depuis la session navigateur après connexion.
+
+<Note>
+  Traitez le jeton comme un secret. Toute personne en possession du jeton peut agir en votre nom. Ne le partagez pas et ne le commitez pas dans le code source.
+</Note>
+
+## Expiration et renouvellement
+
+Les jetons ont une durée de vie limitée. S’il expire, les requêtes API renvoient `401 Unauthorized`.
+
+Reconnectez-vous au portail pour obtenir un nouveau jeton utilisable immédiatement.
+
+Il n’y a pas de rafraîchissement automatique du jeton — une nouvelle connexion est nécessaire à l’expiration.
+
+## Erreurs d’authentification courantes
+
+| Code | Signification |
+|--------|---------|
+| 401 | Jeton invalide ou expiré. Reconnectez-vous. |
+| 403 | Jeton valide mais droits insuffisants pour la ressource. Demandez à un administrateur d’ajuster les permissions. |

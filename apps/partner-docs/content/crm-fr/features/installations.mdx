@@ -1,0 +1,88 @@
+---
+title: "Piloter les installations maison connectée de bout en bout"
+description: "Recherche, filtres, création et suivi de chaque installation jusqu’à l’accord client dans le CRM HeyZack."
+---
+
+La page **Installations** centralise tous les chantiers maison connectée. Suivi global, recherche par client ou téléphone, fiche détail, affectation technicien, avancement du cycle de vie et notes internes — le tout dans le CRM.
+
+## Parcourir la liste
+
+En tête de page : barre de recherche et filtre de statut.
+
+- **Recherche** — extrait du titre d’installation, nom client ou numéro de téléphone. Mise à jour pendant la saisie.
+- **Filtre de statut** — étapes possibles :
+
+| Valeur | Contenu |
+|---|---|
+| Tous les statuts | Toutes les installations |
+| Brouillon | Créée, pas encore planifiée |
+| Planifiée | Date confirmée, en attente d’affectation |
+| Affectée | Technicien assigné |
+| En cours | Travaux démarrés sur site |
+| Terminée | Travaux finis, en attente validation client |
+| Accord client | Client a confirmé l’installation |
+| Annulée | Installation annulée |
+
+## Colonnes du tableau
+
+| Colonne | Description |
+|---|---|
+| ID | Identifiant unique (police monospace) |
+| Titre | Libellé du chantier |
+| Client | Client final |
+| Partenaire | Partenaire responsable du dossier |
+| Technicien | Intervenant affecté |
+| Planifiée | Date confirmée de passage |
+| Statut | Badge coloré selon l’étape du cycle |
+
+<Note>
+  Les couleurs de badge sont cohérentes dans tout le CRM : gris brouillon, bleu planifié/affecté, ambre en cours, vert terminé/accord client, rouge annulé — y compris sur la carte Installations récentes du tableau de bord.
+</Note>
+
+## Fiche installation
+
+Clic sur une ligne pour ouvrir la fiche. Deux zones :
+
+- **Barre latérale gauche** — date prévue, dates de création, statut, client (nom, e-mail, téléphone, adresse), partenaire (nom, code, palier, contact), technicien, photos de fin de chantier, contrat, note client.
+- **Panneau principal** — quatre onglets :
+
+<Accordion title="Onglet Vue d’ensemble">
+  Fiche complète : titre, ID, description, dates prévue et de fin, ID commande liée, e-mail compte maison connectée du client, horodatages de création et dernière mise à jour.
+</Accordion>
+
+<Accordion title="Onglet Produits">
+  Liste des produits avec nom, SKU, quantité et prix unitaire.
+</Accordion>
+
+<Accordion title="Onglet Activité">
+  Chronologie des événements — changements de statut, affectations, autres actions journalisées — avec horodatage et auteur.
+</Accordion>
+
+<Accordion title="Onglet Notes">
+  Notes internes jusqu’à 5 000 caractères, **Ajouter une note** pour enregistrer. Chaque note affiche auteur, e-mail et date. Suppression via l’icône corbeille avec confirmation.
+</Accordion>
+
+## Créer une installation
+
+Création depuis le flux standard du CRM avec :
+
+- Titre descriptif
+- Client lié
+- Partenaire responsable
+- Date et heure prévues
+
+Statut initial **Brouillon**, puis progression selon l’avancement.
+
+## Mettre à jour le statut
+
+Depuis la fiche, utilisez les contrôles de statut dans la barre latérale ou le panneau Vue d’ensemble. Chaque changement est enregistré dans la chronologie **Activité**.
+
+Voir [Cycle de vie d’une installation](/concepts/installation-lifecycle) pour le détail des étapes et transitions.
+
+## Affecter un technicien
+
+Dans la fiche, section **Informations technicien** de la barre latérale. Une fois le technicien lié, son nom, e-mail et téléphone apparaissent dans la barre et dans le tableau principal.
+
+<Note>
+  Sur le plan opérationnel, affectez un technicien lorsque l’installation est au moins **Planifiée**. L’affectation fait en général passer le statut à **Affectée**.
+</Note>

@@ -1,0 +1,113 @@
+---
+title: "Gérer votre équipe de techniciens dans le portail partenaire"
+description: "Ajouter, rechercher, filtrer et retirer les techniciens liés à votre compte, et consulter compétences, disponibilités et vérification d’identité."
+---
+
+La page **Techniciens** centralise la gestion de chaque intervenant lié à votre compte partenaire : enregistrement, consultation des profils, disponibilité, messagerie et retrait d’un membre qui ne travaille plus avec vous — le tout sans quitter le portail.
+
+## Contenu d’une fiche technicien
+
+| Champ | Description |
+|---|---|
+| **Nom** | Nom affiché du technicien |
+| **Téléphone** | Numéro utilisé pour les échanges |
+| **Adresse / lieu d’intervention** | Zone ou adresse d’activité courante |
+| **Compétences** | Spécialisations (plomberie, électricité, menuiserie, etc.) |
+| **Disponibilité** | Disponible, Occupé ou En congé |
+| **Note** | Score reflétant la qualité des chantiers passés |
+| **Vérification** | Indique si votre équipe a validé le document KYC |
+
+<Note>
+  Les techniciens vérifiés affichent un libellé bleu **Vérifié** sous leur nom dans le tableau. Les non vérifiés peuvent encore être affectés, mais la vérification est recommandée avant envoi chez le client.
+</Note>
+
+## Statistiques en tête de page
+
+Quatre cartes résument l’effectif :
+
+- **Total** — nombre de techniciens liés au compte
+- **Disponibles** — statut Disponible (souvent en vert)
+- **Occupés** — affectés à un chantier actif (souvent en jaune)
+- **En congé** — temporairement indisponibles (souvent en rouge)
+- **Note moyenne** — moyenne des notes de l’équipe
+
+## Recherche et filtres
+
+- **Recherche** — nom ou compétence, filtrage en temps réel
+- **Filtre de statut** — Disponible, Occupé, En congé ou Inscription en attente
+- **Filtre de compétence** — liste déroulante par compétence du profil
+
+Les critères sont cumulables. L’en-tête du tableau indique le nombre de résultats.
+
+## Tableau des techniciens
+
+Dix lignes par page, colonnes :
+
+| Colonne | Contenu |
+|---|---|
+| **Nom** | Avatar, nom, libellé Vérifié si applicable |
+| **Contact** | Téléphone |
+| **Adresse** | Lieu d’intervention |
+| **Disponibilité** | Badge et lien **Voir les disponibilités** |
+| **Profil** | Icône œil — modal détail |
+| **Message** | Icône bulle — modal messagerie |
+| **Actions** | Icône corbeille — retirer du compte |
+
+Cliquer sur une ligne ouvre le profil complet. Pagination en bas de la carte.
+
+## Enregistrer un nouveau technicien
+
+<Steps>
+  <Step title="Ouvrir le formulaire">
+    Cliquez sur **Ajouter un technicien** en haut à droite. La modale d’inscription s’ouvre.
+  </Step>
+  <Step title="Renseigner les informations">
+    Champs obligatoires :
+
+    - **Nom** — nom complet
+    - **E-mail** — communications et connexion au portail
+    - **Téléphone** — contact
+    - **Lieu actuel** — zone d’intervention
+  </Step>
+  <Step title="Ajouter des compétences">
+    Saisissez une compétence puis **Entrée** ou le bouton **+**. Répétez pour chaque compétence. Préréglages possibles (plomberie, électricité, etc.). **×** sur une étiquette pour la retirer.
+  </Step>
+  <Step title="Valider">
+    Cliquez sur **Créer le technicien**. L’enregistrement apparaît dans le tableau avec le statut **Disponible** par défaut.
+  </Step>
+</Steps>
+
+<Tip>
+  Vous pouvez ajouter des compétences personnalisées en les saisissant puis **Entrée**.
+</Tip>
+
+## Profil complet
+
+Icône œil dans **Profil** ou clic sur la ligne. La modale comporte trois onglets :
+
+- **Détails** — contact, lieu, compétences, KYC et contrôles de vérification
+- **Disponibilités** — créneaux jour par jour. Voir [Suivre les disponibilités](/handymen/availability)
+- **Installations** — chantiers affectés avec statuts et dates
+
+## Retirer un technicien
+
+<Steps>
+  <Step title="Localiser la ligne">
+    Recherche ou filtres pour trouver la personne.
+  </Step>
+  <Step title="Supprimer">
+    Cliquez sur la corbeille dans **Actions**. Une confirmation s’affiche.
+  </Step>
+  <Step title="Confirmer">
+    Cliquez sur **Supprimer**. Le technicien est délié de votre compte partenaire et disparaît du tableau.
+  </Step>
+</Steps>
+
+<Warning>
+  Le retrait ne supprime pas le profil du technicien dans le système global. Les installations déjà affectées restent enregistrées.
+</Warning>
+
+## Voir aussi
+
+- [Suivre les disponibilités](/handymen/availability)
+- [Envoyer des messages](/handymen/messaging)

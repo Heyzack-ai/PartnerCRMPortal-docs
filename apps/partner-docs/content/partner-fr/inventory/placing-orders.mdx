@@ -1,0 +1,92 @@
+---
+title: "Passer et suivre des commandes de matériel maison connectée"
+description: "Parcours boutique HeyZack, application des crédits partenaire au paiement, suivi des commandes jusqu’à la livraison."
+---
+
+Commander du matériel se fait en deux temps : achat sur la boutique Shopify HeyZack, puis suivi sur la page **Commandes** du portail. Ce guide couvre les deux, y compris l’utilisation des crédits partenaire.
+
+## Passer une commande
+
+<Steps>
+  <Step title="Ouvrir la boutique">
+    Page **Commandes**, **Acheter maintenant** en haut à droite. La boutique s’ouvre dans un nouvel onglet avec connexion automatique.
+
+    <Note>
+      Le SSO utilise vos identifiants portail. En cas d’échec de chargement, actualisez l’onglet.
+    </Note>
+  </Step>
+  <Step title="Parcourir et ajouter au panier">
+    Produits disponibles : serrure, caméra, détecteur de mouvement, hub, détecteur de fenêtre, sonnette — quantités au choix.
+  </Step>
+  <Step title="Appliquer un crédit partenaire (facultatif)">
+    Avant de payer, générez un code promo depuis le tableau de bord (voir [Utiliser le crédit partenaire](#using-partner-credit) ci-dessous) et collez-le dans le champ code promo du panier Shopify. Le montant est déduit automatiquement.
+  </Step>
+  <Step title="Finaliser le paiement">
+    Vérifiez le récapitulatif et validez. La commande apparaît sous peu sur **Commandes** avec le statut **En attente**.
+  </Step>
+</Steps>
+
+## Suivre une commande
+
+<Steps>
+  <Step title="Ouvrir Commandes">
+    **Commandes** dans la barre latérale gauche.
+  </Step>
+  <Step title="Trouver la commande">
+    Recherche par numéro ou nom d’article, ou filtre par statut.
+  </Step>
+  <Step title="Détail">
+    **Voir le détail** sur une ligne : panneau avec numéro, article, quantité, montant, date de commande et, si livré, date de livraison.
+  </Step>
+</Steps>
+
+## Cycle de vie des statuts
+
+```
+En attente → Approuvée → Livrée
+              ↓
+          Annulée
+```
+
+| Statut | Signification |
+|---|---|
+| **En attente** | Soumise, en attente de confirmation de paiement |
+| **Approuvée** | Paiement confirmé, préparation d’expédition |
+| **Livrée** | Honorée et expédiée |
+| **Annulée** | Annulée ou remboursée avant expédition |
+
+<Warning>
+  Une commande **Livrée** n’est plus modifiable depuis le portail. Problème de livraison ou retour : contactez votre chargé de compte HeyZack.
+</Warning>
+
+<span id="using-partner-credit" />
+
+## Utiliser le crédit partenaire
+
+Le crédit partenaire est un solde appliqué comme remise sur le total Shopify. Vous générez un coupon depuis le tableau de bord et le saisissez au paiement.
+
+<Steps>
+  <Step title="Ouvrir le tableau de bord">
+    **Tableau de bord** dans la barre latérale.
+  </Step>
+  <Step title="Carte Crédit disponible">
+    Carte **Crédit disponible** avec solde EUR. Clic pour ouvrir le panneau d’application du crédit.
+  </Step>
+  <Step title="Montants">
+    Saisissez le total du panier Shopify et le montant de crédit à utiliser. Le portail affiche le reste à payer après déduction.
+  </Step>
+  <Step title="Générer le code">
+    **Appliquer le crédit**. Un code de réduction lié à votre compte est généré et affiché.
+
+    <Tip>
+      Copiez le code avant de quitter le tableau de bord — il peut n’être affiché qu’une fois par demande.
+    </Tip>
+  </Step>
+  <Step title="Poursuivre vers le paiement">
+    **Continuer vers le paiement** ouvre le panier Shopify. Collez le code dans le champ remise et finalisez. Le crédit réduit immédiatement le total dû.
+  </Step>
+</Steps>
+
+<Note>
+  Le solde reflète votre palier, remises et éventuels crédits promotionnels HeyZack. Il se met à jour après traitement de chaque commande.
+</Note>

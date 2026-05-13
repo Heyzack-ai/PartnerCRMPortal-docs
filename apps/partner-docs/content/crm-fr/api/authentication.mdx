@@ -1,0 +1,45 @@
+---
+title: "Authentifier les requêtes API avec un jeton Bearer"
+description: "Obtenir un jeton Bearer après connexion au portail HeyZack et l’inclure correctement dans chaque requête API."
+---
+
+Chaque point de terminaison de l’API du portail partenaire HeyZack exige une authentification par **jeton Bearer** : connexion au portail pour obtenir le jeton, puis envoi dans l’en-tête de chaque requête.
+
+## Obtenir un jeton
+
+Connectez-vous au portail partenaire HeyZack. Après authentification réussie, un jeton Bearer est émis pour votre compte et votre rôle (partenaire, technicien ou administrateur). Le rôle détermine les données et actions autorisées.
+
+## Transmettre le jeton
+
+Ajoutez-le à l’en-tête `Authorization` de chaque requête :
+
+```
+Authorization: Bearer <votre-jeton>
+```
+
+### Exemple avec curl
+
+```bash
+curl -X GET "https://<domaine-de-votre-portail>/api/v1/chat/connections" \
+  -H "Authorization: Bearer <votre-jeton>" \
+  -H "Content-Type: application/json"
+```
+
+## Expiration
+
+Les jetons expirent après une période d’inactivité. Une réponse `401 Unauthorized` indique une expiration. Reconnectez-vous au portail pour obtenir un nouveau jeton et relancez la requête.
+
+<Warning>
+  Ne partagez jamais votre jeton et ne le commitez pas dans le dépôt de code. Traitez-le comme un mot de passe.
+</Warning>
+
+## Réponses d’erreur
+
+| Situation | Réponse |
+|----------|---------|
+| Jeton absent ou mal formé | `401 Unauthorized` |
+| Jeton valide, droits insuffisants | `403 Forbidden` |
+
+```json
+{ "error": "Unauthorized" }
+```

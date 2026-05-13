@@ -1,0 +1,70 @@
+---
+title: "Tableau de bord : vue opérations maison connectée"
+description: "Vue en temps réel des ventes, leads, installations, partenaires et commandes récentes à l’ouverture du CRM HeyZack."
+---
+
+Le tableau de bord est le premier écran après connexion. Il regroupe les indicateurs clés — volume des ventes, pipeline, installations actives et actions financières en attente — pour prioriser rapidement votre journée.
+
+## Indicateurs clés
+
+Quatre cartes en tête de page, données live et comparaison à la période précédente.
+
+<CardGroup cols={2}>
+  <Card title="Ventes totales (€)" icon="euro-sign">
+    Chiffre d’affaires agrégé tous partenaires sur la période en cours. Pourcentage de tendance sous la valeur — vert si hausse, rouge si baisse par rapport à la période précédente.
+  </Card>
+  <Card title="Nouveaux leads" icon="trending-up">
+    Nombre de leads créés sur la période. L’indicateur de tendance compare au volume de la période précédente.
+  </Card>
+  <Card title="Installations actives" icon="package">
+    Installations en cours — planifiées, affectées ou démarrées, non terminées ni annulées.
+  </Card>
+  <Card title="Partenaires actifs" icon="users">
+    Partenaires ayant eu de l’activité sur la période. Utile pour suivre l’engagement du réseau.
+  </Card>
+</CardGroup>
+
+## Cartes d’activité
+
+Trois cartes sous les indicateurs pour un bilan opérationnel rapide.
+
+<CardGroup cols={3}>
+  <Card title="Approbations en attente" icon="clock">
+    Demandes d’inscription partenaire et technicien en attente de validation. À traiter rapidement pour débloquer les comptes.
+  </Card>
+  <Card title="Terminées aujourd’hui" icon="circle-check">
+    Installations marquées terminées aujourd’hui. Comparez à votre objectif journalier pour détecter les retards.
+  </Card>
+  <Card title="Reversements en attente" icon="circle-alert">
+    Montant total (€) de commissions partenaire acquises mais pas encore versées, calculé à partir des installations approuvées.
+  </Card>
+</CardGroup>
+
+## Installations récentes
+
+La carte **Installations récentes** liste les quatre dernières installations mises à jour. Chaque ligne : titre, nom client, badge de statut coloré.
+
+Cliquez une ligne pour ouvrir la [fiche installation](/features/installations).
+
+## Top partenaires
+
+**Top partenaires** classe les partenaires par chiffre d’affaires. Jusqu’à quatre entrées : nom, code partenaire et montant total en €. Identifiez les relations les plus performantes.
+
+## Commandes récentes
+
+Le tableau **Commandes récentes** affiche les cinq dernières commandes du rapport des ventes.
+
+| Colonne | Description |
+|---|---|
+| N° commande | Numéro unique, préfixé `#` |
+| E-mail | E-mail client lié à la commande |
+| Adresse | Livraison ou adresse d’intervention |
+| Montant | Total de la commande |
+| Statut | `Fulfilled`, `Unfulfilled` ou autre badge |
+| Actions | Bouton **Mettre à jour** pour changer le statut |
+
+Création de commande depuis le tableau de bord : bouton **Créer une commande** en haut à droite de la zone commandes.
+
+<Tip>
+  Commencez chaque journée par le tableau de bord. Les trois cartes Approbations en attente, Terminées aujourd’hui et Reversements en attente listent les actions urgentes ; le tableau des commandes récentes permet des mises à jour rapides sans changer de page.
+</Tip>

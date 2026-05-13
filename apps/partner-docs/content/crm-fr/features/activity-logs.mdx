@@ -1,0 +1,61 @@
+---
+title: "Journaux d’activité : audit des actions du portail"
+description: "Historique horodaté des actions utilisateurs — connexions, changements de statut, création de reversements, gestion d’équipe."
+---
+
+Les **journaux d’activité** enregistrent de façon horodatée les actions significatives dans le CRM HeyZack : connexions, créations ou mises à jour d’installations, leads, commandes, reversements, gestion des utilisateurs — pour savoir qui a fait quoi et quand.
+
+<Note>
+  Seuls les utilisateurs disposant de la permission **Journaux d’activité** accèdent à cette section.
+</Note>
+
+## Événements journalisés
+
+- **Connexions** — ouvertures de session
+- **Installations** — création ou mise à jour
+- **Leads** — changements de statut ou de détail
+- **Commandes** — nouvelles commandes
+- **Reversements** — création d’un enregistrement de paiement
+- **Gestion des utilisateurs** — ajout, modification ou suppression de comptes
+
+## Parcourir les journaux
+
+Barre de filtres :
+
+- **Recherche** — texte libre sur la description, le nom d’utilisateur ou le type d’entité
+- **Gravité** — Info, Succès, Avertissement ou Erreur
+- **Entité** — par ex. Installation, Reversement, Utilisateur
+
+<Tip>
+  Combinez recherche par date (si disponible dans l’interface) et filtre d’entité pour retrouver une modification précise — ex. toute l’activité « Reversement » contenant un nom de partenaire.
+</Tip>
+
+## Champs d’une entrée
+
+| Champ | Description |
+|-------|-------------|
+| Horodatage | Date et heure de l’action (`MMM JJ, AAAA HH:mm:ss`) |
+| Utilisateur | Nom et e-mail de l’auteur |
+| Action | Ex. `Created`, `Updated`, `Deleted`, `Approved`, `Rejected`, `Completed` |
+| Entité | Type d’enregistrement concerné |
+| Description | Résumé lisible du changement |
+| Gravité | Info, Succès, Avertissement ou Erreur |
+
+![Table des journaux d’activité avec filtres](/activity-logs-log-entry-fields.png)
+
+## Cas d’usage
+
+<CardGroup cols={2}>
+  <Card title="Conformité et audit" icon="file-text">
+    Vérifier qu’une action a bien été effectuée au bon moment par la bonne personne.
+  </Card>
+  <Card title="Analyse d’incohérences" icon="alert-circle">
+    Retrouver l’origine d’un changement inattendu (statut de lead, reversement annulé).
+  </Card>
+  <Card title="Activité équipe" icon="check-circle">
+    Suivre l’usage du portail et le respect des processus.
+  </Card>
+  <Card title="Investigation d’erreurs" icon="x-circle">
+    Filtrer sur la gravité Erreur pour isoler les échecs et leur contexte.
+  </Card>
+</CardGroup>

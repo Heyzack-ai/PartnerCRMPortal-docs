@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/lib/theme-config'
+import { getDocsQuickNavLabels } from '@/lib/docs-nav-locale'
 import type { Root, Node } from 'fumadocs-core/page-tree'
 
 interface DocsSidebarProps {
@@ -12,6 +13,7 @@ interface DocsSidebarProps {
 
 export function DocsSidebar({ tree }: DocsSidebarProps) {
   const pathname = usePathname()
+  const { documentation, support, docsHomeHref } = getDocsQuickNavLabels(pathname)
 
   return (
     <aside className="hidden lg:block w-64 shrink-0">
@@ -21,7 +23,7 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
           <ul className="space-y-2">
             <li>
               <Link
-                href="/docs"
+                href={docsHomeHref}
                 className="flex items-center gap-3 py-1 text-sm text-[var(--accent)] font-medium hover:opacity-80 transition-opacity"
               >
                 <span className="flex items-center justify-center w-7 h-7 rounded-md bg-[var(--accent-muted)]">
@@ -29,7 +31,7 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </span>
-                Documentation
+                {documentation}
               </Link>
             </li>
             {siteConfig.links.support && (
@@ -43,7 +45,7 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </span>
-                  Support
+                  {support}
                 </a>
               </li>
             )}

@@ -1,0 +1,139 @@
+---
+title: "POST /api/v1/chat/send — envoyer un message"
+description: "Envoyer un message texte à un partenaire, un technicien ou un administrateur via l’API Chat HeyZack. Un seul identifiant de destinataire par requête."
+---
+
+Ce point de terminaison envoie un message texte depuis votre compte authentifié vers un autre utilisateur du réseau HeyZack. Le destinataire est identifié par **exactement un** parmi `handymanId`, `partnerId` ou `adminId`, selon le sens de la conversation. Le chat partenaire ↔ technicien exige que les deux profils soient liés par un chantier ou une installation.
+
+## Point de terminaison
+
+```
+POST /api/v1/chat/send
+```
+
+## Authentification
+
+Jeton Bearer obligatoire. Voir [Authentification](/api/authentication).
+
+## Corps de la requête
+
+<ParamField body="message" type="string" required>
+  Contenu texte du message à envoyer.
+</ParamField>
+
+<ParamField body="handymanId" type="string">
+  ID du technicien destinataire. À utiliser lorsqu’un partenaire ou un admin envoie à un technicien.
+</ParamField>
+
+<ParamField body="partnerId" type="string">
+  ID du partenaire destinataire. À utiliser lorsqu’un technicien ou un admin envoie à un partenaire.
+</ParamField>
+
+<ParamField body="adminId" type="string">
+  ID de l’admin destinataire. À utiliser lorsqu’un partenaire ou un technicien envoie à un admin.
+</ParamField>
+
+<Note>
+  **Exactement un** parmi `handymanId`, `partnerId` ou `adminId` doit être présent dans chaque requête. Zéro ou plusieurs de ces champs provoquent une erreur `400`.
+</Note>
+
+## Exemples
+
+<CodeGroup>
+
+```json Partner → Handyman
+{
+  "handymanId": "handyman_xyz456",
+  "message": "Hello! I have a question about the installation tomorrow."
+}
+```
+
+```json Handyman → Partner
+{
+  "partnerId": "partner_abc123",
+  "message": "I'll be there at 10 AM."
+}
+```
+
+```json Partner → Admin
+{
+  "adminId": "admin_xyz789",
+  "message": "I need help with my account settings."
+}
+```
+
+```json Handyman → Admin
+{
+  "adminId": "admin_xyz789",
+  "message": "I have a question about payment."
+}
+```
+
+```json Admin → Partner
+{
+  "partnerId": "partner_abc123",
+  "message": "Thank you for reaching out. How can I assist you?"
+}
+```
+
+```json Admin → Handyman
+{
+  "handymanId": "handyman_xyz456",
+  "message": "Your payment has been processed."
+}
+```
+
+</CodeGroup>
+
+## Réponse de succès
+
+Renvoie `200 OK` avec l’objet message créé sous la clé `data`.
+
+<ResponseField name="id" type="string">
+  Identifiant unique du message.
+</ResponseField>
+
+<ResponseField name="roomId" type="string">
+  Salle de chat concernée. Les identifiants de salle sont déterministes selon les participants.
+</ResponseField>
+
+<ResponseField name="senderId" type="string">
+  ID de l’expéditeur (votre utilisateur authentifié).
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Texte envoyé.
+</ResponseField>
+
+<ResponseField name="messageType" type="string">
+  Toujours `"text"` pour ce point de terminaison.
+</ResponseField>
+
+<ResponseField name="createdAt" type="string">
+  Horodatage ISO 8601 de création du message.
+</ResponseField>
+
+```json
+{
+  "message": "Message sent successfully",
+  "data": {
+    "id": "msg_123456",
+    "roomId": "room_admin_partner_abc123",
+    "senderId": "user_abc123",
+    "message": "I need help with my account settings.",
+    "messageType": "text",
+    "createdAt": "2024-01-16T10:30:00.000Z"
+  }
+}
+```
+
+## Réponses d’erreur
+
+| Statut | Message d’erreur | Cause |
+|--------|---------------|-------|
+| 400 | `"partnerId, handymanId, or adminId is required"` | Aucun ID destinataire fourni |
+| 400 | `"Admin can only chat with either partner or handyman, not both"` | L’admin a fourni plus d’un ID destinataire |
+| 400 | `"Invalid recipient role"` | L’ID ne correspond pas à un rôle valide |
+| 403 | `"Handyman and partner are not connected"` | Partenaire et technicien non liés par un chantier ou une installation |
+| 404 | `"Recipient user not found"` | Aucun utilisateur pour cet ID |
+| 500 | `"Internal server error"` | Erreur serveur inattendue |

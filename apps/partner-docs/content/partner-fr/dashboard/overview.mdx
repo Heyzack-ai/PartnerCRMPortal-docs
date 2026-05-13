@@ -1,0 +1,84 @@
+---
+title: "Tableau de bord du portail partenaire : vue opérationnelle"
+description: "KPI en direct, installations à venir et clients récents pour suivre l’activité sans multiplier les écrans."
+---
+
+Le tableau de bord est la première page après connexion. Il regroupe les données les plus utiles de votre compte partenaire pour évaluer la santé de l’activité et agir vite. Les indicateurs se rafraîchissent au chargement de la page.
+
+## Contenu du tableau de bord
+
+Trois zones : une rangée de cartes KPI en haut, puis deux blocs côte à côte pour les clients récents et les installations à venir.
+
+![Vue d’ensemble du tableau de bord](/dashboard-overview-what-it-shows.png)
+
+<CardGroup cols={3}>
+  <Card title="Cartes KPI" icon="chart-bar">
+    Sept indicateurs synthétiques : clients, installations, techniciens, chiffre d’affaires, satisfaction et crédit disponible.
+  </Card>
+  <Card title="Clients récents" icon="users">
+    Les cinq derniers clients créés, avec badges de statut et coordonnées.
+  </Card>
+  <Card title="Installations à venir" icon="calendar">
+    Les cinq prochains chantiers planifiés, triés par date, avec le nom du technicien affecté.
+  </Card>
+</CardGroup>
+
+## Cartes KPI
+
+La partie supérieure affiche sept cartes KPI en grille responsive. Chaque carte montre une métrique et sa valeur actuelle. Le détail de chaque indicateur est expliqué dans [Comprendre les KPI du tableau de bord](/dashboard/kpis).
+
+Les sept cartes :
+
+| Carte | Contenu |
+|---|---|
+| Total clients | Nombre total de clients du compte |
+| Installations actives | Nombre total d’installations enregistrées |
+| Installations terminées | Installations ayant reçu l’accord formel du client |
+| Techniciens disponibles | Techniciens disponibles sur l’effectif total |
+| Chiffre d’affaires mensuel | Chiffre du mois en cours (EUR) |
+| Satisfaction client | Note moyenne sur 5 |
+| Crédit disponible | Solde de crédits partenaire (EUR) |
+
+<Note>
+  La carte **Crédit disponible** propose l’action **Utiliser le crédit** pour l’appliquer à une commande Shopify. Voir [Paliers partenaire : avantages, seuils et crédits](/dashboard/partner-tier).
+</Note>
+
+## Bloc clients récents
+
+Le widget **Clients récents** liste les cinq derniers clients ajoutés. Pour chacun :
+
+- Nom
+- E-mail ou téléphone
+- Statut du compte (actif / inactif)
+- Date d’ajout
+
+Choisissez **Tout voir** pour ouvrir la section Clients complète.
+
+## Bloc installations à venir
+
+Le widget **Installations du jour** (libellé produit) affiche les cinq prochains chantiers planifiés, du plus proche au plus lointain. Pour chaque entrée :
+
+- Nom et adresse du client
+- Date prévue
+- Nom du technicien affecté
+
+Choisissez **Tout voir** pour ouvrir la section Installations et gérer planification et statuts.
+
+## Navigation depuis le tableau de bord
+
+Le tableau de bord sert de point de départ. Repérez ce qui nécessite une action, puis suivez les liens ci-dessous.
+
+<CardGroup cols={2}>
+  <Card title="Clients" icon="user" href="/customers/overview">
+    Détails des fiches et gestion des statuts.
+  </Card>
+  <Card title="Installations" icon="wrench" href="/installations/overview">
+    Planifier, affecter et suivre chaque chantier.
+  </Card>
+  <Card title="Techniciens" icon="hard-hat" href="/handymen/overview">
+    Effectif et disponibilités.
+  </Card>
+  <Card title="Palier partenaire" icon="trophy" href="/dashboard/partner-tier">
+    Palier actuel, progression et utilisation des crédits.
+  </Card>
+</CardGroup>

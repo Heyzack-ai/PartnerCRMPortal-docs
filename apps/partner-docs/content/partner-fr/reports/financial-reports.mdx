@@ -1,0 +1,154 @@
+---
+title: "Rapports financiers : chiffre d’affaires, palier et ventes"
+description: "Chiffre par origine, marges, ancienneté des encaissements, commissions partenaire et scores de satisfaction sur la période choisie."
+---
+
+L’onglet **Financier** consolide la performance financière : trois sources de chiffre (partenaire, ventes produit, honoraires), marges par catégorie, rapidité de recouvrement et synthèse des commissions. Les autres onglets de la même page (performance des techniciens, satisfaction) nourrissent aussi votre positionnement HeyZack.
+
+## Synthèse financière
+
+Quatre cartes en tête de l’onglet Financier, filtrées par la plage de dates.
+
+| Indicateur | Contenu |
+|---|---|
+| **Chiffre d’affaires total** | Somme des trois sources sur la période |
+| **Marge bénéficiaire** | Marge globale en pourcentage sur toutes les catégories |
+| **Efficacité de recouvrement** | Part des montants facturés encaissés sous 60 jours (ex. 88 % = 0,88 € encaissé par 1 € facturé sous deux mois) |
+| **Encours** | Total des factures impayées, tous buckets d’ancienneté |
+
+## Chiffre d’affaires par origine
+
+Le graphique **Tendances du chiffre par source** décompose le total en trois courbes mois par mois :
+
+- **Chiffre partenaire** — commissions et apport partenaire
+- **Ventes produit** — matériel vendu via vos installations
+- **Prestations de service** — main-d’œuvre et services récurrents
+
+Les honoraires de service portent en général les marges les plus élevées (voir graphique des marges associé).
+
+## Marges par catégorie
+
+Histogramme **Marges par catégorie** — ordre de grandeur indicatif :
+
+| Catégorie | Marge indicative |
+|---|---|
+| Serrures connectées | 32,5 % |
+| Caméras | 28,7 % |
+| Thermostats | 35,2 % |
+| Capteurs | 42,1 % |
+| Installation (main-d’œuvre) | 65,8 % |
+| Services d’assistance | 78,3 % |
+
+Pour améliorer la rentabilité globale, développer le volume « service » relatif au « matériel » est un levier direct.
+
+## Analyse des encaissements
+
+Panneau **Analyse des encaissements** — répartition des montants selon l’ancienneté :
+
+- **0–30 jours** — factures courantes, souvent ~65 % des créances
+- **31–60 jours** — léger retard, cycle encore courant
+- **61–90 jours** — relances actives recommandées
+- **90+ jours** — créances âgées, escalade possible
+
+Le diagramme **Ancienneté des encours** montre la part des montants en retard (31 jours et plus). Priorisez les relances sur les buckets les plus anciens.
+
+<Warning>
+  Un poids élevé en 90+ jours dégrade fortement l’efficacité de recouvrement et peut peser sur l’évaluation de palier. Traitez les factures âgées rapidement (client direct ou escalade HeyZack).
+</Warning>
+
+## Tableau des commissions partenaire
+
+Liste des sous-comptes ou membres d’équipe avec, sur la période :
+
+- **Installations terminées**
+- **Chiffre généré**
+- **Taux de commission** — souvent 8–10 % selon palier
+- **Commission acquise**
+- **Statut** — payée ou en attente
+
+<Note>
+  Les taux dépendent du palier partenaire. Voir [Paliers partenaire](/dashboard/partner-tier) pour seuils et calculs.
+</Note>
+
+## Performance des techniciens (rappel)
+
+Onglet **Performance des techniciens** sur la même page : installations terminées, note moyenne sur 5, temps de réponse aux affectations (heures), nombre de certifications HeyZack actives, chiffre attribué aux chantiers terminés. Graphique radar des compétences moyennes (serrures, caméras, thermostats, capteurs, réseau, relation client) pour repérer les écarts de formation.
+
+<Tip>
+  Plus de certifications corrèle souvent avec plus de chantiers et de chiffre. Encourager les certifications HeyZack est un levier de débit.
+</Tip>
+
+## Satisfaction client
+
+Quatre indicateurs clés :
+
+| Métrique | Description |
+|---|---|
+| **NPS global** | Net Promoter Score post-installation. Au-dessus de 50, excellent. |
+| **Note moyenne** | Moyenne des étoiles 1–5 sur la période. |
+| **Taux de réponse** | Part des clients ayant répondu à l’enquête après installation. |
+| **Taux de résolution** | Part des incidents résolus, toutes catégories. |
+
+### Impact sur le positionnement partenaire
+
+HeyZack s’appuie notamment sur le NPS et la note moyenne lors des revues de palier et de compte. Des scores durablement bas (NPS sous 30 ou note moyenne sous 4,0) peuvent déclencher une revue de palier ou des exigences de suivi renforcé par le chargé de compte.
+
+Panneau **Performance de résolution des incidents** par catégorie :
+
+- Support technique — configuration ou connectivité
+- Problèmes d’installation — pendant ou après chantier
+- Questions produit — fonctionnalités des appareils
+- Facturation — questions ou litiges
+- Garantie — demandes sous garantie
+
+Chaque ligne : résolus, total soulevé, délai moyen de résolution (heures). Les catégories sous 80 % de résolution sont mises en avant.
+
+<AccordionGroup>
+  <Accordion title="Calcul du NPS">
+    Après chaque installation, enquête « probabilité de recommandation » 0–10. 9–10 = promoteurs, 7–8 = passifs, 0–6 = détracteurs. NPS = % promoteurs − % détracteurs, entre −100 et +100.
+  </Accordion>
+  <Accordion title="Qu’influence la note moyenne ?">
+    Chaque installation terminée peut déclencher une demande d’avis. La moyenne porte sur toutes les notes de la période, ventilées par type de chantier (serrures, caméras, thermostats, capteurs, installation complète).
+  </Accordion>
+  <Accordion title="Importance du taux de réponse">
+    Un faible taux de réponse rend NPS et note moins représentatifs. Encouragez vos clients à répondre à l’enquête post-installation.
+  </Accordion>
+</AccordionGroup>
+
+## Exporter les données financières
+
+<Steps>
+  <Step title="Plage de dates">
+    Choisissez la période (ex. mois civil écoulé ou trimestre personnalisé).
+  </Step>
+  <Step title="Onglet Financier">
+    Activez l’onglet **Financier**.
+  </Step>
+  <Step title="Exporter">
+    **Exporter** en haut à droite — **PDF**, **Excel** ou **CSV**.
+  </Step>
+  <Step title="Enregistrer">
+    Téléchargement automatique. Les PDF incluent graphiques et tableaux ; Excel et CSV exposent les données tabulaires.
+  </Step>
+</Steps>
+
+<Note>
+  L’export couvre la plage sélectionnée et l’onglet actif. Pour croiser installations et finances, exportez chaque onglet séparément.
+</Note>
+
+## Voir aussi
+
+<CardGroup cols={2}>
+  <Card title="Vue d’ensemble des rapports" icon="chart-bar" href="/reports/overview">
+    Les cinq familles de rapports et le filtre de dates
+  </Card>
+  <Card title="Rapports installations" icon="screwdriver-wrench" href="/reports/installation-reports">
+    Taux de complétion, tendances et types d’appareils
+  </Card>
+  <Card title="Palier partenaire" icon="trophy" href="/dashboard/partner-tier">
+    Lien entre chiffre mensuel, satisfaction et palier
+  </Card>
+  <Card title="KPI du tableau de bord" icon="gauge" href="/dashboard/kpis">
+    Synthèse des indicateurs transverses du compte
+  </Card>
+</CardGroup>

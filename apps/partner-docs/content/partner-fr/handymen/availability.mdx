@@ -1,0 +1,83 @@
+---
+title: "Suivre et consulter les disponibilités des techniciens"
+description: "Créneaux par jour, badges de statut et impact des affectations sur la disponibilité en temps réel."
+---
+
+Connaître les disponibilités permet d’affecter des installations sans conflit. Le portail agrège le planning de chaque technicien — depuis le tableau ou le profil détaillé.
+
+## Statuts de disponibilité
+
+Badge coloré dans la colonne **Disponibilité** :
+
+<AccordionGroup>
+  <Accordion title="Disponible (vert)">
+    Aucun chantier actif bloquant ; peut recevoir de nouvelles missions. Filtre **Disponible** limité à ce statut.
+  </Accordion>
+  <Accordion title="Occupé (jaune)">
+    Affecté à un ou plusieurs chantiers actifs. Le portail met à jour ce statut automatiquement à l’affectation.
+  </Accordion>
+  <Accordion title="En congé (rouge)">
+    Temporairement indisponible ; n’apparaît pas dans les suggestions d’affectation par défaut.
+  </Accordion>
+  <Accordion title="Inscription en attente (gris)">
+    Configuration du compte incomplète. Le profil existe mais l’activité n’est pas pleinement active. Consultation et contact possibles.
+  </Accordion>
+</AccordionGroup>
+
+## Planning jour par jour
+
+Chaque ligne comporte le lien **Voir les disponibilités** sous le badge. Il ouvre la modale profil sur l’onglet **Disponibilités**.
+
+<Steps>
+  <Step title="Trouver le technicien">
+    Recherche ou filtres statut / compétence.
+  </Step>
+  <Step title="Cliquer sur Voir les disponibilités">
+    La modale s’ouvre directement sur l’onglet Disponibilités.
+  </Step>
+  <Step title="Parcourir les jours">
+    Liste de jours avec :
+
+    - **Jour et date** — abréviation (ex. LUN) et date
+    - **Badge** — **Disponible** (vert) ou **Occupé** (gris) pour ce jour
+    - **Créneaux** — plages horaires libres (ex. `09:00 - 13:00`). Si disponible sans créneau précis : *Aucun créneau défini*
+    - **Indisponible** — *Indisponible ce jour-là* si le jour est bloqué
+  </Step>
+</Steps>
+
+<Note>
+  Vous pouvez aussi ouvrir le profil via la ligne puis sélectionner l’onglet **Disponibilités** manuellement.
+</Note>
+
+## Lien avec l’affectation aux installations
+
+- Seuls les techniciens **Disponibles** sont des candidats idéaux par défaut pour une nouvelle affectation.
+- L’affectation d’un chantier passe souvent le statut à **Occupé**. Le champ lieu peut refléter l’adresse du chantier.
+- Retour à **Disponible** une fois les chantiers terminés ou annulés.
+
+<Tip>
+  Vous pouvez encore affecter manuellement un technicien **Occupé** si besoin ; vérifiez d’abord son planning pour le créneau demandé.
+</Tip>
+
+<Warning>
+  Les techniciens **En congé** sont exclus de la vue disponibilité par défaut. Si quelqu’un manque à l’affectation, vérifiez ce statut.
+</Warning>
+
+## Comprendre les créneaux
+
+<Tabs>
+  <Tab title="Jour avec créneaux">
+    Une ou plusieurs plages (ex. `09:00 - 13:00` et `14:00 - 17:00`). Planifiez dans ces fenêtres pour limiter les conflits.
+  </Tab>
+  <Tab title="Jour sans créneau précis">
+    Marqué disponible sans heures détaillées. Affectation possible, mais coordonnez-vous directement avec le technicien.
+  </Tab>
+  <Tab title="Jour indisponible">
+    Badge **Occupé** et mention d’indisponibilité. Évitez de planifier ce jour-là.
+  </Tab>
+</Tabs>
+
+## Voir aussi
+
+- [Gérer l’équipe](/handymen/overview)
+- [Messagerie](/handymen/messaging)

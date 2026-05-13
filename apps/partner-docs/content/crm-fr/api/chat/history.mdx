@@ -1,0 +1,180 @@
+---
+title: "GET /api/v1/chat/history — récupérer les messages"
+description: "Historique paginé des messages entre vous et un partenaire, technicien ou administrateur via l’API Chat du portail HeyZack."
+---
+
+Ce point de terminaison renvoie l’historique de conversation avec un autre utilisateur. La réponse est paginée et triée du plus ancien au plus récent — la page 1 contient donc les messages les plus anciens. Chaque message inclut les informations d’expéditeur pour afficher un fil complet.
+
+## Point de terminaison
+
+```
+GET /api/v1/chat/history
+```
+
+## Authentification
+
+Jeton Bearer obligatoire. Voir [Authentification](/api/authentication).
+
+## Paramètres de requête
+
+<ParamField query="handymanId" type="string">
+  ID du technicien dans la conversation. Partenaire ou admin récupérant l’historique avec un technicien.
+</ParamField>
+
+<ParamField query="partnerId" type="string">
+  ID du partenaire. Technicien ou admin récupérant l’historique avec un partenaire.
+</ParamField>
+
+<ParamField query="adminId" type="string">
+  ID de l’admin. Partenaire ou technicien récupérant l’historique avec l’admin.
+</ParamField>
+
+<ParamField query="page" type="number" default="1">
+  Numéro de page (base 1) — la page 1 renvoie les messages les plus anciens.
+</ParamField>
+
+<ParamField query="limit" type="number" default="50">
+  Nombre de messages par page.
+</ParamField>
+
+<Note>
+  **Exactement un** parmi `handymanId`, `partnerId` ou `adminId` est requis — il désigne l’autre partie de la conversation.
+</Note>
+
+## Exemple
+
+```bash
+curl "https://<your-portal-domain>/api/v1/chat/history?partnerId=partner_abc123&page=1&limit=50" \
+  -H "Authorization: Bearer <your-token>"
+```
+
+## Réponse de succès
+
+Renvoie `200 OK`. L’objet `data` contient le tableau `messages`, l’identifiant `roomId` et un objet `pagination`.
+
+<ResponseField name="messages" type="object[]">
+  Messages triés du plus ancien au plus récent.
+
+  <Expandable title="Propriétés d’un message">
+    <ResponseField name="id" type="string">
+      Identifiant unique du message.
+    </ResponseField>
+
+    <ResponseField name="message" type="string">
+      Contenu texte. `null` pour les messages image.
+    </ResponseField>
+
+    <ResponseField name="messageType" type="string">
+      `"text"` ou `"image"`.
+    </ResponseField>
+
+    <ResponseField name="imageUrl" type="string">
+      URL de l’image pour les messages image. `null` pour le texte.
+    </ResponseField>
+
+    <ResponseField name="imageSize" type="string">
+      Chaîne JSON avec `fileSize` et `mimeType` pour les images. `null` pour le texte.
+    </ResponseField>
+
+    <ResponseField name="createdAt" type="string">
+      Horodatage ISO 8601 d’envoi.
+    </ResponseField>
+
+    <ResponseField name="senderId" type="string">
+      ID de l’expéditeur.
+    </ResponseField>
+
+    <ResponseField name="senderName" type="string">
+      Nom affiché de l’expéditeur.
+    </ResponseField>
+
+    <ResponseField name="senderRole" type="string">
+      Rôle de l’expéditeur : `"partner"`, `"handyman"` ou `"admin"`.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="roomId" type="string">
+  Identifiant de la salle contenant ces messages.
+</ResponseField>
+
+<ResponseField name="pagination" type="object">
+  Métadonnées de pagination.
+
+  <Expandable title="Propriétés de pagination">
+    <ResponseField name="page" type="number">
+      Numéro de page renvoyé.
+    </ResponseField>
+
+    <ResponseField name="limit" type="number">
+      Nombre de messages par page.
+    </ResponseField>
+
+    <ResponseField name="total" type="number">
+      Nombre total de messages dans la conversation.
+    </ResponseField>
+
+    <ResponseField name="hasNext" type="boolean">
+      `true` s’il existe une page suivante.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+```json
+{
+  "data": {
+    "messages": [
+      {
+        "id": "msg_123",
+        "message": "Welcome to Heyzack! How can we help you today?",
+        "messageType": "text",
+        "imageUrl": null,
+        "imageSize": null,
+        "createdAt": "2024-01-16T10:00:00.000Z",
+        "senderId": "admin_xyz789",
+        "senderName": "Heyzack Admin",
+        "senderRole": "admin"
+      },
+      {
+        "id": "msg_124",
+        "message": "I need help with my account settings.",
+        "messageType": "text",
+        "imageUrl": null,
+        "imageSize": null,
+        "createdAt": "2024-01-16T10:05:00.000Z",
+        "senderId": "partner_abc123",
+        "senderName": "John Doe",
+        "senderRole": "partner"
+      },
+      {
+        "id": "msg_125",
+        "message": null,
+        "messageType": "image",
+        "imageUrl": "https://storage.example.com/chat/image.jpg",
+        "imageSize": "{\"fileSize\":123456,\"mimeType\":\"image/jpeg\"}",
+        "createdAt": "2024-01-16T10:10:00.000Z",
+        "senderId": "admin_xyz789",
+        "senderName": "Heyzack Admin",
+        "senderRole": "admin"
+      }
+    ],
+    "roomId": "room_admin_partner_abc123",
+    "pagination": {
+      "page": 1,
+      "limit": 50,
+      "total": 3,
+      "hasNext": false
+    }
+  }
+}
+```
+
+## Pagination
+
+L’objet `pagination` contient `page`, `limit`, `total` et `hasNext`. Pour charger des messages plus anciens, augmentez le numéro de page. Lorsque `hasNext` est `false`, vous êtes sur la dernière page (messages les plus récents).
+
+Les messages sont toujours renvoyés en ordre chronologique — du plus ancien au plus récent dans chaque page.
+
+<Note>
+  Lorsqu’un partenaire ou un technicien ouvre un chat avec l’admin pour la première fois, un message d’accueil en anglais (« Welcome to Heyzack! How can we help you today? ») apparaît en premier dans l’historique. Il est envoyé automatiquement depuis le compte admin sans action de votre part.
+</Note>

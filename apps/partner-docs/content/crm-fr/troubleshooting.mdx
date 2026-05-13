@@ -1,0 +1,113 @@
+---
+title: "Dépannage des problèmes courants du portail"
+description: "Connexion, chat temps réel, installations introuvables, erreurs de statut des leads et autres incidents HeyZack."
+---
+
+Solutions aux problèmes les plus signalés sur le portail HeyZack. Essayez ces étapes avant d’ouvrir un ticket support — la plupart se résolvent localement.
+
+## Authentification
+
+<AccordionGroup>
+  <Accordion title="Je ne peux pas me connecter">
+    1. Vérifiez l’adresse e-mail du compte.
+    2. Resaisissez le mot de passe en vérifiant que **Verr Maj** est désactivé (sensible à la casse).
+    3. Mot de passe oublié : **Mot de passe oublié** puis suivez l’e-mail (lien valable 60 minutes).
+    4. Sinon, demandez à un administrateur de vérifier que le compte est actif dans **Paramètres → Gérer les rôles**.
+  </Accordion>
+
+  <Accordion title="Je suis déconnecté sans arrêt">
+    Les sessions expirent après une période d’inactivité. Reconnectez-vous pour poursuivre.
+
+    Si la déconnexion survient pendant une session active, videz les cookies du navigateur et reconnectez-vous. Si le problème persiste, signalez-le à l’administrateur.
+  </Accordion>
+
+  <Accordion title="Erreur 403 sur les appels API">
+    `403 Forbidden` signifie que le compte n’a pas la permission d’effectuer l’action ou d’accéder à la ressource.
+
+    Demandez une revue des rôles et permissions dans **Paramètres → Gérer les rôles**, puis réessayez.
+
+    <Warning>
+      Ne tentez pas de contourner un 403 en modifiant manuellement en-têtes ou jetons — les contrôles d’accès protègent les données de l’organisation.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
+
+## Chat
+
+<AccordionGroup>
+  <Accordion title="Les messages n’arrivent pas en temps réel">
+    1. Vérifiez la connexion Internet.
+    2. Actualisez la page — le chat se reconnecte et charge les messages manqués.
+    3. Sur un réseau d’entreprise, demandez à l’IT de vérifier que le service de messagerie temps réel du portail n’est pas bloqué (pare-feu, proxy).
+  </Accordion>
+
+  <Accordion title="Je ne peux pas démarrer un chat avec un technicien">
+    Le chat partenaire ↔ technicien nécessite une installation ou un chantier commun. Sans affectation partagée, l’option n’apparaît pas.
+
+    Demandez à l’admin de vérifier le lien ou de créer l’affectation appropriée.
+  </Accordion>
+
+  <Accordion title="Je vois des messages en double">
+    Sur connexion lente, un message peut être renvoyé avant confirmation — cas limite connu.
+
+    Actualisez la page : le serveur ne conserve qu’une copie, l’historique redevient correct après rechargement.
+  </Accordion>
+</AccordionGroup>
+
+## Installations
+
+<AccordionGroup>
+  <Accordion title="Je ne trouve pas une installation">
+    1. Utilisez la **barre de recherche** en tête de page Installations (nom client, adresse ou ID).
+    2. Vérifiez le filtre de statut — choisissez **Tous les statuts** si besoin.
+    3. Le dossier peut être rattaché à un autre partenaire. L’administrateur peut rechercher sur tous les partenaires et réaffecter si nécessaire.
+  </Accordion>
+
+  <Accordion title="Le statut ne change pas">
+    1. Vérifiez la permission **Installations** — sans elle, les champs de statut sont en lecture seule.
+    2. Certaines transitions ne sont possibles que depuis des statuts précis.
+    3. Si les droits et la transition sont corrects, contactez l’admin pour mise à jour ou analyse des données.
+  </Accordion>
+</AccordionGroup>
+
+## Leads
+
+<AccordionGroup>
+  <Accordion title="Le bouton Générer un jeton est grisé">
+    Le bouton **Générer un jeton** n’est actif que si le lead a un identifiant système valide et un statut éligible (ex. **Qualifié**).
+
+    Si les conditions sont remplies, actualisez la page. Sinon, contactez l’administrateur.
+  </Accordion>
+
+  <Accordion title="Un lead converti affiche encore Qualifié">
+    Les mises à jour peuvent prendre un court délai. Actualisez la page.
+
+    Si le statut reste incorrect, l’administrateur peut corriger manuellement la fiche lead.
+  </Accordion>
+</AccordionGroup>
+
+## Général
+
+<AccordionGroup>
+  <Accordion title="Un élément de menu manque">
+    L’accès aux sections du menu est contrôlé par permissions utilisateur (création de compte ou profil dans **Paramètres**).
+
+    Demandez à l’administrateur d’activer la permission correspondante.
+  </Accordion>
+
+  <Accordion title="Chargement lent des pages">
+    1. **Videz le cache** du navigateur puis rechargez.
+    2. **Essayez un autre navigateur** pour isoler un problème spécifique.
+    3. **Testez la connexion** réseau.
+
+    <Tip>
+      Chrome et Edge donnent en général les meilleurs résultats avec le portail. Mettez à jour un navigateur obsolète si besoin.
+    </Tip>
+
+    Si la lenteur concerne tous navigateurs et connexions, le problème peut être côté plateforme — signalez-le à l’administrateur.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Si votre problème n’est pas listé ici, contactez votre chargé de compte HeyZack.
+</Note>

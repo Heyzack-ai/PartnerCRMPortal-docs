@@ -1,0 +1,96 @@
+---
+title: "Rôles et permissions dans le CRM"
+description: "Fonctionnement des rôles Administrateur, Manager et Support, et contrôle d’accès au niveau des menus."
+---
+
+Le CRM repose sur des rôles pour définir ce que chaque utilisateur voit et peut faire. Trois rôles — Administrateur, Manager et Support — et pour Manager et Support, des permissions menu fines permettent d’accorder le minimum nécessaire sans exposer tout le CRM.
+
+## Rôles
+
+| Rôle | Description |
+|------|-------------|
+| Administrateur | Accès à toutes les fonctionnalités ; les restrictions de menu ne s’appliquent pas |
+| Manager | Accès configurable par cases à cocher menu |
+| Support | Accès configurable par cases à cocher menu |
+
+<Note>
+  Les administrateurs ont toujours accès à tout, quelles que soient les cases de permissions.
+</Note>
+
+## Permissions menu
+
+Chaque utilisateur Manager ou Support dispose d’un ensemble de permissions qui contrôle les entrées visibles dans la barre latérale. Vous pouvez activer ou désactiver chaque section :
+
+| Entrée menu | Description |
+|-----------|-------------|
+| Tableau de bord | Synthèse et indicateurs |
+| Commandes | Gestion des commandes clients |
+| Rapport des vente | Analyses chiffre d’affaires et ventes |
+| Contacts | Fiches contacts |
+| Partenaires | Gestion des partenaires |
+| Installations | Suivi des installations maison connectée |
+| Techniciens | Gestion des techniciens |
+| Leads | Pipeline et suivi des leads |
+| Clients | Fiches clients |
+| Chat | Messagerie avec le terrain |
+| Paiements | Historique et reversements |
+| Journaux d’activité | Piste d’audit |
+| Paramètres | Utilisateurs et réglages du compte |
+
+Si aucune permission n’est assignée (liste vide), le CRM considère l’utilisateur comme ayant accès complet et affiche tous les menus.
+
+<figure className="my-8 mx-auto w-fit max-w-[min(200px,80vw)] origin-top scale-[0.78] rounded-lg border border-border bg-muted/15 p-2 shadow-sm sm:max-w-[min(240px,75vw)] sm:scale-[0.72] [&_span]:my-0">
+  <img
+    src="/crm-admin-portal-sidebar.png"
+    alt="HeyZack Admin Portal — menu latéral principal avec Tableau de bord, Commandes, Rapport des ventes, Contacts, Partenaires, Installations, Techniciens, Leads, Clients, Chat, Paiements, journaux d’activité et Paramètres"
+    width={320}
+    height={720}
+    className="block w-full rounded-md"
+    loading="lazy"
+  />
+</figure>
+
+## Modifier un rôle
+
+<Steps>
+  <Step title="Ouvrir Paramètres">
+    **Paramètres** dans la barre latérale.
+  </Step>
+  <Step title="Onglet Gérer les rôles">
+    Onglet **Gérer les rôles**.
+  </Step>
+  <Step title="Trouver l’utilisateur">
+    Recherche par nom ou e-mail.
+  </Step>
+  <Step title="Modifier">
+    **Modifier** sur la ligne, choisir le nouveau rôle dans la liste, enregistrer.
+  </Step>
+</Steps>
+
+![Écran Gérer les rôles](/roles-permissions-changing-roles.png)
+
+## Créer un utilisateur
+
+<Steps>
+  <Step title="Paramètres">
+    **Paramètres** dans la barre latérale.
+  </Step>
+  <Step title="Créer un utilisateur">
+    Onglet **Créer un utilisateur**.
+  </Step>
+  <Step title="Saisir les informations">
+    Nom complet, e-mail et mot de passe sécurisé, puis rôle — Administrateur, Manager ou Support.
+  </Step>
+  <Step title="Permissions menu">
+    Cochez chaque section accessible. **Tout sélectionner** active tout d’un coup. Pour un administrateur, ces cases n’ont pas d’effet.
+  </Step>
+  <Step title="Créer">
+    **Créer l’utilisateur**. Le compte peut se connecter immédiatement avec les identifiants définis.
+  </Step>
+</Steps>
+
+![Écran Créer un utilisateur](/roles-permissions-creating-users.png)
+
+<Tip>
+  Pour donner à un nouveau Manager ou Support l’accès à tous les menus, utilisez **Tout sélectionner** plutôt que de cocher chaque ligne une par une.
+</Tip>

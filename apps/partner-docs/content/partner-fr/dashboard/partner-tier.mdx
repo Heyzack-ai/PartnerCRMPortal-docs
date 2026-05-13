@@ -1,0 +1,96 @@
+---
+title: "Paliers partenaire : avantages, seuils de chiffre d’affaires et crédits"
+description: "Fonctionnement des paliers HeyZack, seuils mensuels, remises et MDF, crédits partenaire et application à une commande Shopify."
+---
+
+HeyZack récompense la croissance via un programme à paliers. Votre palier dépend du chiffre d’affaires mensuel ; les paliers supérieurs débloquent de meilleures remises, des taux de fonds marketing (MDF) et d’autres avantages. Vous suivez palier actuel et progression depuis le tableau de bord.
+
+## Fonctionnement des paliers
+
+Le palier est calculé automatiquement à partir du chiffre d’affaires mensuel. Lorsque le volume dépasse un seuil, le compte est rehaussé. La date de dernier changement de palier est enregistrée.
+
+Chaque palier est défini par :
+
+| Propriété | Description |
+|---|---|
+| **Nom du palier** | Nom du niveau (ex. Silver, Gold, Platinum) |
+| **Seuil** | Chiffre d’affaires mensuel minimum (EUR) pour ce palier |
+| **Taux de remise** | Pourcentage de remise produit à ce palier |
+| **Taux MDF** | Taux de fonds marketing développement (MDF) à ce palier |
+| **Avantages** | Autres avantages ou accès programme à ce palier |
+
+<Note>
+  Le palier repose sur le chiffre mensuel, pas sur le cumul historique. Si le mensuel repasse sous un seuil, un ajustement peut intervenir à la prochaine période de revue.
+</Note>
+
+## Suivi sur le tableau de bord
+
+La carte **Chiffre d’affaires mensuel** reflète en temps réel l’entrée principale pour le calcul de palier. Pour la progression vers le palier suivant, les informations de palier indiquent notamment :
+
+- **Palier actuel** — niveau actuellement attribué
+- **Palier suivant** — nom du niveau supérieur, ou vide si vous êtes déjà au plus haut niveau
+- **Chiffre jusqu’au palier suivant** — chiffre d’affaires mensuel supplémentaire (EUR) nécessaire pour atteindre le palier suivant
+
+<Tip>
+  Augmentez le nombre d’installations clôturées avec accord client pour faire progresser le chiffre mensuel vers le prochain seuil.
+</Tip>
+
+## Crédits partenaire
+
+Les crédits partenaire sont un avantage monétaire du programme. Le solde en EUR apparaît sur la carte KPI **Crédit disponible**.
+
+Les crédits s’accumulent selon votre palier et votre activité commerciale. Une fois acquis, vous pouvez les appliquer aux achats dans la boutique Shopify HeyZack pour réduire le montant à payer.
+
+## Appliquer des crédits à une commande Shopify
+
+Depuis le tableau de bord, utilisez la boîte de dialogue **Utiliser le crédit** sur la carte **Crédit disponible**.
+
+<Steps>
+  <Step title="Ouvrir Utiliser le crédit">
+    Sur le tableau de bord, repérez la carte **Crédit disponible** et cliquez sur **Utiliser le crédit**. La boîte de dialogue invite à saisir le total du panier et le montant de crédit à utiliser.
+  </Step>
+  <Step title="Saisir le total du panier">
+    Dans **Total panier (€)**, indiquez le montant total du panier Shopify en EUR, avant remise. Ce montant figure sur le panier ou le tunnel de paiement Shopify.
+  </Step>
+  <Step title="Saisir le crédit à utiliser">
+    Dans **Crédit à utiliser (€)**, indiquez la part de votre solde à appliquer. La valeur ne peut pas dépasser le plus petit des deux : total du panier ou solde disponible — l’interface limite automatiquement la saisie.
+
+    Utilisez **Utiliser tout le crédit** pour préremplir avec le maximum applicable.
+  </Step>
+  <Step title="Valider et générer le coupon">
+    Cliquez sur **Vérifier et appliquer dans Shopify**. Le système contrôle l’éligibilité puis génère un code de réduction du montant choisi.
+
+    Une notification confirme la création du coupon.
+  </Step>
+  <Step title="Poursuivre vers le paiement">
+    Une seconde boîte de dialogue affiche le code généré et un bouton **Continuer vers le paiement**. Ouvrez le tunnel Shopify dans un nouvel onglet avec le coupon préappliqué.
+
+    Si le code n’est pas appliqué automatiquement, saisissez-le dans le champ code promo de Shopify.
+  </Step>
+</Steps>
+
+<Warning>
+  L’application d’un crédit génère un coupon et déduit le solde. Si vous fermez le paiement sans finaliser l’achat, contactez le support HeyZack — les crédits ne sont pas rétablis automatiquement.
+</Warning>
+
+## Référence de configuration des paliers
+
+Chaque palier est décrit par les champs ci-dessous. La configuration complète (tous les paliers et seuils) est consultable dans les paramètres de votre compte partenaire.
+
+<AccordionGroup>
+  <Accordion title="tier">
+    Nom lisible du palier (ex. Bronze, Silver, Gold, Platinum). Affiché sur le tableau de bord et dans les communications.
+  </Accordion>
+  <Accordion title="threshold">
+    Chiffre d’affaires mensuel minimum (EUR) pour ce palier. Le compte est placé dans le plus haut palier dont le seuil est atteint ou dépassé.
+  </Accordion>
+  <Accordion title="discountRate">
+    Pourcentage de remise sur les achats produit à ce palier. Un palier plus élevé réduit davantage le coût unitaire.
+  </Accordion>
+  <Accordion title="mdfRate">
+    Taux MDF pour ce palier, en pourcentage. Le MDF est une contribution co-marketing HeyZack pour des actions marketing approuvées.
+  </Accordion>
+  <Accordion title="benefits">
+    Liste d’avantages additionnels : support prioritaire, interlocuteur dédié, co-branding, accès anticipé aux produits, etc.
+  </Accordion>
+</AccordionGroup>

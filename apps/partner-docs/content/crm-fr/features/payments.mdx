@@ -1,0 +1,79 @@
+---
+title: "Traiter et suivre les reversements de commissions partenaires"
+description: "Créer, filtrer et suivre les paiements de commissions par statut, partenaire et plage de dates dans la section Paiements HeyZack CRM."
+---
+
+La section **Paiements** pilote les reversements de commissions aux partenaires. Vue des montants en attente et payés, création de dossiers liés aux installations approuvées par le client, et fiche détail pour chaque transaction. Tous les montants sont affichés en euros (€).
+
+## Statistiques de reversement
+
+Quatre cartes en tête de page pour la plage de dates active :
+
+<CardGroup cols={2}>
+  <Card title="Total payé" icon="circle-check">
+    Montant versé et nombre de reversements finalisés sur la période.
+  </Card>
+  <Card title="Total en attente" icon="clock">
+    Montant et nombre de reversements créés mais pas encore envoyés aux partenaires.
+  </Card>
+  <Card title="Reversement moyen" icon="trending-up">
+    Montant moyen par opération sur la période en cours.
+  </Card>
+  <Card title="Nombre total de reversements" icon="euro-sign">
+    Nombre cumulé d’enregistrements de reversement créés (toutes périodes).
+  </Card>
+</CardGroup>
+
+## Parcourir les reversements
+
+Barre de filtres :
+
+- **Recherche** — nom de partenaire ou ID de transaction
+- **Statut** — Tous, En attente, Payé ou Annulé
+- **Partenaire** — liste déroulante pour un partenaire précis
+- **Plage de dates** — les cartes et graphiques suivent la période choisie
+
+## Créer un reversement
+
+**Créer un reversement** en haut à droite. Seules les installations au statut `customer_approved` sont éligibles.
+
+<Steps>
+  <Step title="Choisir l’installation">
+    Sélectionnez l’installation terminée et approuvée par le client. Le partenaire se remplit en général automatiquement.
+  </Step>
+  <Step title="Confirmer le partenaire">
+    Prérempli depuis l’installation. Sinon, choix manuel du partenaire.
+  </Step>
+  <Step title="Montant et taux de commission">
+    Saisissez la valeur totale du chantier et le pourcentage de commission (défaut souvent 15 %). Le CRM calcule le montant du reversement en direct.
+  </Step>
+  <Step title="Moyen de paiement">
+    Virement, chèque, PayPal ou Stripe.
+  </Step>
+  <Step title="Détails optionnels">
+    ID de transaction (référence interne) et notes, puis **Créer le reversement**.
+  </Step>
+</Steps>
+
+![Écran reversements partenaires avec filtres](/payments-creating-payout.png)
+
+## Statuts
+
+| Statut | Signification |
+|--------|---------|
+| En attente | Reversement créé, pas encore versé |
+| Payé | Commission versée |
+| Annulé | Reversement annulé, ne sera pas traité |
+
+## Détail d’un reversement
+
+Icône **Œil** sur une ligne pour ouvrir le panneau : partenaire, installation, pourcentage de commission, montant calculé, moyen de paiement, ID de transaction et notes.
+
+## Graphiques
+
+- **Répartition mensuelle des reversements** — montants par mois sur la plage sélectionnée.
+- **Répartition par moyen de paiement** — parts Virement, Chèque, PayPal, Stripe avec pourcentages sous le graphique.
+
+<Note>
+  Tous les montants de reversement sont affichés en euros (€).
+</Note>

@@ -10,17 +10,39 @@ interface DocsSwitcherProps {
   variant?: 'header' | 'mobile'
 }
 
-const PARTNER_HREF = '/docs'
-const CRM_HREF = '/docs/crm'
+function useFrenchLocale(): boolean {
+  const pathname = usePathname() || ''
+  return pathname.startsWith('/docs/fr') || pathname.startsWith('/docs/crm/fr')
+}
+
+function partnerBasePath(isFr: boolean): string {
+  return isFr ? '/docs/fr' : '/docs'
+}
+
+function crmBasePath(isFr: boolean): string {
+  return isFr ? '/docs/crm/fr' : '/docs/crm'
+}
 
 /**
- * Switch between Partner and CRM documentation on the same origin
- * (`/docs` vs `/docs/crm`).
+ * Switch between Partner and CRM documentation on the same origin.
+ * Preserves French locale when switching (`/docs/fr` ↔ `/docs/crm/fr`).
  */
 export function DocsSwitcher({ className, variant = 'header' }: DocsSwitcherProps) {
   const pathname = usePathname() || ''
-  const onCrm = pathname === CRM_HREF || pathname.startsWith(`${CRM_HREF}/`)
-  const onPartner = pathname.startsWith(PARTNER_HREF) && !onCrm
+  const isFr = useFrenchLocale()
+
+  const partnerHref = partnerBasePath(isFr)
+  const crmHref = crmBasePath(isFr)
+
+  const onCrmFr = pathname.startsWith('/docs/crm/fr')
+  const onCrmEn =
+    (pathname === '/docs/crm' || pathname.startsWith('/docs/crm/')) && !onCrmFr
+  const onCrm = onCrmFr || onCrmEn
+
+  const onPartnerFr = pathname.startsWith('/docs/fr')
+  const onPartnerEn =
+    pathname.startsWith('/docs') && !pathname.startsWith('/docs/crm') && !pathname.startsWith('/docs/fr')
+  const onPartner = onPartnerFr || onPartnerEn
 
   const partnerText = variant === 'mobile' ? 'Partner Portal' : 'Partner'
   const crmText = variant === 'mobile' ? 'HeyZack CRM' : 'CRM'
@@ -41,7 +63,7 @@ export function DocsSwitcher({ className, variant = 'header' }: DocsSwitcherProp
           {partnerText}
         </span>
       ) : (
-        <Link href={PARTNER_HREF} className={inactive} title="Open Partner Portal documentation">
+        <Link href={partnerHref} className={inactive} title="Open Partner Portal documentation">
           {partnerText}
         </Link>
       )}
@@ -53,7 +75,7 @@ export function DocsSwitcher({ className, variant = 'header' }: DocsSwitcherProp
           {crmText}
         </span>
       ) : (
-        <Link href={CRM_HREF} className={inactive} title="Open HeyZack CRM documentation">
+        <Link href={crmHref} className={inactive} title="Open HeyZack CRM documentation">
           {crmText}
         </Link>
       )}

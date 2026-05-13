@@ -1,0 +1,113 @@
+---
+title: "POST /api/v1/chat/upload-image — envoyer une image"
+description: "Téléverser une image JPEG, PNG, WebP ou GIF et l’envoyer comme message de chat via l’API du portail HeyZack."
+---
+
+Ce point de terminaison téléverse un fichier image et l’envoie comme message dans une conversation. La requête utilise `multipart/form-data` (pas JSON) : le binaire image et l’ID du destinataire sont des champs de formulaire. Le serveur stocke l’image et renvoie une URL d’affichage.
+
+## Point de terminaison
+
+```
+POST /api/v1/chat/upload-image
+```
+
+## Authentification
+
+Jeton Bearer obligatoire. Voir [Authentification](/api/authentication).
+
+## Format de la requête
+
+`multipart/form-data` — n’utilisez pas `Content-Type: application/json`. Le client HTTP définit automatiquement le type multipart avec fichier joint.
+
+## Formats pris en charge
+
+JPEG, PNG, WebP, GIF.
+
+## Champs du formulaire
+
+<ParamField body="image" type="file" required>
+  Fichier image à téléverser (JPEG, PNG, WebP, GIF).
+</ParamField>
+
+<ParamField body="handymanId" type="string">
+  ID du technicien destinataire. Partenaire ou admin envoyant à un technicien.
+</ParamField>
+
+<ParamField body="partnerId" type="string">
+  ID du partenaire destinataire. Technicien ou admin envoyant à un partenaire.
+</ParamField>
+
+<ParamField body="adminId" type="string">
+  ID de l’admin destinataire. Partenaire ou technicien envoyant à l’admin.
+</ParamField>
+
+<Note>
+  **Exactement un** parmi `handymanId`, `partnerId` ou `adminId` doit être présent dans chaque requête.
+</Note>
+
+## Exemple
+
+```bash
+curl -X POST "https://<your-portal-domain>/api/v1/chat/upload-image" \
+  -H "Authorization: Bearer <your-token>" \
+  -F "image=@/path/to/image.jpg" \
+  -F "handymanId=handyman_xyz456"
+```
+
+## Réponse de succès
+
+Renvoie `200 OK` avec l’objet message créé sous `data`.
+
+<ResponseField name="id" type="string">
+  Identifiant unique du message.
+</ResponseField>
+
+<ResponseField name="roomId" type="string">
+  Salle de chat concernée.
+</ResponseField>
+
+<ResponseField name="senderId" type="string">
+  ID de l’expéditeur de l’image (utilisateur authentifié).
+</ResponseField>
+
+<ResponseField name="messageType" type="string">
+  Toujours `"image"` pour ce point de terminaison.
+</ResponseField>
+
+<ResponseField name="imageUrl" type="string">
+  URL publique de l’image téléversée pour affichage dans votre application.
+</ResponseField>
+
+<ResponseField name="imageSize" type="string">
+  Chaîne JSON avec `fileSize` (octets) et `mimeType` du fichier.
+</ResponseField>
+
+<ResponseField name="createdAt" type="string">
+  Horodatage ISO 8601 de création du message.
+</ResponseField>
+
+```json
+{
+  "message": "Image uploaded and sent successfully",
+  "data": {
+    "id": "msg_123456",
+    "roomId": "room_admin_handyman_xyz456",
+    "senderId": "user_xyz456",
+    "messageType": "image",
+    "imageUrl": "https://storage.example.com/chat/image.jpg",
+    "imageSize": "{\"fileSize\":123456,\"mimeType\":\"image/jpeg\"}",
+    "createdAt": "2024-01-16T10:30:00.000Z"
+  }
+}
+```
+
+## Réponses d’erreur
+
+| Statut | Message d’erreur | Cause |
+|--------|---------------|-------|
+| 400 | `"partnerId, handymanId, or adminId is required"` | Aucun ID destinataire |
+| 400 | `"Admin can only chat with either partner or handyman, not both"` | Plus d’un ID destinataire pour l’admin |
+| 400 | `"Invalid recipient role"` | ID ne correspond pas à un rôle valide |
+| 403 | `"Handyman and partner are not connected"` | Pas de lien chantier/installation |
+| 404 | `"Recipient user not found"` | Utilisateur introuvable |
+| 500 | `"Internal server error"` | Erreur serveur |

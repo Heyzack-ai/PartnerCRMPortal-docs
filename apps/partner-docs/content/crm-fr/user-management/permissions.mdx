@@ -1,0 +1,65 @@
+---
+title: "Configurer les permissions d’accès au menu par utilisateur"
+description: "Contrôler les sections visibles dans la barre latérale pour chaque compte Manager ou Support lors de la création."
+---
+
+Les **permissions menu** déterminent quelles sections de la barre latérale du portail partenaire un utilisateur peut ouvrir. À la création d’un compte **Manager** ou **Support**, seules les entrées cochées sont visibles après connexion. Les **Administrateurs** voient toujours tout — les permissions ne s’appliquent pas à eux.
+
+## Permissions disponibles
+
+Chaque case du formulaire **Créer un utilisateur** correspond à une section du menu.
+
+| Permission | Débloque |
+|-----------|---------|
+| `dashboard` | Tableau de bord |
+| `orders` | Commandes |
+| `sales_report` | Rapport des ventes |
+| `partners` | Partenaires |
+| `installations` | Installations |
+| `handymen` | Techniciens |
+| `leads` | Leads |
+| `customers` | Clients |
+| `chat` | Chat |
+| `payments` | Paiements |
+| `activity_logs` | Journaux d’activité |
+
+## Lors de la création d’un utilisateur
+
+Configuration en bas du formulaire **Créer un utilisateur** dans **Paramètres → Créer un utilisateur**.
+
+<Steps>
+  <Step title="Aller au panneau Permissions menu">
+    Après nom, e-mail, mot de passe et rôle, faites défiler jusqu’au panneau **Permissions menu**.
+  </Step>
+  <Step title="Cocher les sections">
+    Cochez chaque menu que l’utilisateur doit voir. Les cases non cochées restent masquées dans sa barre latérale.
+  </Step>
+  <Step title="Tout sélectionner">
+    Case **Tout sélectionner** en haut à droite du panneau pour tout activer. La décocher retire toutes les permissions.
+  </Step>
+  <Step title="Créer le compte">
+    **Créer l’utilisateur**. Les permissions choisies s’appliquent à la prochaine connexion.
+  </Step>
+</Steps>
+
+## Règle administrateur
+
+<Info>
+  Les administrateurs ont toujours accès à toutes les sections. Les cases de permissions sont ignorées pour ce rôle — inutile de les configurer.
+</Info>
+
+Les permissions ne concernent que les rôles **Manager** et **Support**.
+
+## Mettre à jour les permissions
+
+Les permissions sont définies à la création du compte. Le portail ne propose pas actuellement de formulaire pour modifier les cases une à une sur un compte existant.
+
+Pour changer l’accès menu, supprimez le compte et recréez-le avec le jeu de permissions souhaité.
+
+<Warning>
+  Retirer l’accès à une section masque immédiatement le menu correspondant à la prochaine connexion. Prévenez l’utilisateur avant de recréer un compte avec des droits réduits.
+</Warning>
+
+<Tip>
+  Pour un simple changement de **rôle** sans retoucher chaque permission menu, utilisez **Paramètres → Gérer les rôles → Modifier** plutôt que de supprimer et recréer le compte. Voir [Créer et gérer les comptes utilisateurs](/user-management/users-roles).
+</Tip>

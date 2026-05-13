@@ -1,0 +1,16 @@
+{
+  "title": "HeyZack CRM",
+  "pages": [
+    "index",
+    "introduction",
+    "quickstart",
+    "authentication",
+    "concepts",
+    "features",
+    "user-management",
+    "---Aide---",
+    "faq",
+    "troubleshooting",
+    "api"
+  ]
+}

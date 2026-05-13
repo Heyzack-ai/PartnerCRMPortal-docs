@@ -1,0 +1,100 @@
+---
+title: "Commandes et rapport des ventes dans le portail"
+description: "Consulter, créer et mettre à jour les commandes clients, analyser le chiffre d’affaires avec filtres et export CSV."
+---
+
+Les sections **Commandes** et **Rapport des ventes** du CRM HeyZack offrent une vision complète du pipeline commercial. **Commandes** sert à rechercher et gérer chaque commande et son statut d’exécution. **Rapport des ventes** propose des indicateurs, graphiques et export du jeu de données filtré.
+
+## Commandes
+
+La page Commandes liste les commandes renvoyées par le rapport des ventes, selon la plage de dates sélectionnée.
+
+| Colonne | Description |
+|---|---|
+| N° commande | Numéro unique, préfixe `#` |
+| E-mail | Adresse client liée à la commande |
+| Actions lead | Indique si un lead existe pour cet e-mail ; accès au lead, génération de jeton ou **Créer un lead** |
+| Adresse | Livraison ou adresse de service |
+| Montant | Total de la commande |
+| Statut | Badge `Fulfilled`, `Unfulfilled`, etc. |
+| Actions | **Mettre à jour** pour modifier le statut |
+
+La colonne Actions lead vérifie automatiquement l’existence d’un lead pour l’e-mail de la commande. Si trouvé : badge **Lead trouvé**, lien vers le lead ou génération de jeton. Sinon : **Créer un lead** avec préremplissage à partir de la commande.
+
+## Créer une commande
+
+- **Tableau de bord** — **Créer une commande** en haut à droite de la zone Commandes récentes.
+
+![Bouton Créer une commande sur le tableau de bord](/orders-creating-order-button.png)
+
+- **Page Commandes** — **Créer une commande** dans l’en-tête.
+
+![Bouton Créer une commande sur la page Commandes](/orders-creating-order-button-orders-page.png)
+
+Les deux boutons ouvrent la même boîte **Créer une commande**.
+
+## Mettre à jour le statut d’une commande
+
+<Steps>
+  <Step title="Trouver la commande">
+    Recherche par e-mail, numéro ou adresse.
+  </Step>
+  <Step title="Mettre à jour">
+    **Mettre à jour** (icône crayon) dans la colonne Actions.
+  </Step>
+  <Step title="Nouveau statut">
+    Dans **Mettre à jour le statut de la commande**, choisissez par ex. **Fulfilled** ou **Unfulfilled**, puis validez.
+  </Step>
+</Steps>
+
+## Rapport des ventes
+
+Accessible depuis la section Ventes de la navigation. Quatre indicateurs en tête :
+
+<CardGroup cols={2}>
+  <Card title="Chiffre d’affaires total" icon="dollar-sign">
+    Agrégat sur toutes les commandes de la plage, avec pourcentage de croissance par rapport à la période précédente.
+  </Card>
+  <Card title="Nombre de commandes" icon="shopping-cart">
+    Commandes passées sur la période sélectionnée.
+  </Card>
+  <Card title="Exécutions" icon="package">
+    Commandes honorées sur la période.
+  </Card>
+  <Card title="Commandes en attente" icon="trending-up">
+    Commandes encore en statut `unfulfilled` nécessitant une action.
+  </Card>
+</CardGroup>
+
+Graphiques associés :
+
+- **Tendance du chiffre d’affaires** — histogramme du CA sur les 7 derniers jours de la plage.
+- **Commandes par statut** — répartition fulfilled / unfulfilled / pending en pourcentages avec barres de progression.
+- **Volume de commandes et chiffre d’affaires** — colonnes sur 7 jours avec nombre de commandes et total CA sous chaque barre.
+
+## Filtres et export
+
+Quatre contrôles communs aux pages Commandes et Rapport des ventes :
+
+<CardGroup cols={2}>
+  <Card title="Date de début" icon="calendar">
+    Début de la fenêtre de reporting (par défaut : il y a 30 jours).
+  </Card>
+  <Card title="Date de fin" icon="calendar-check">
+    Fin de la fenêtre (par défaut : aujourd’hui).
+  </Card>
+  <Card title="Partenaire" icon="building">
+    Restreindre aux commandes attribuées à un partenaire. **Tous les partenaires** pour la vue globale.
+  </Card>
+  <Card title="Recherche (page Commandes)" icon="search">
+    Filtre les lignes visibles par e-mail, numéro de commande ou adresse de livraison.
+  </Card>
+</CardGroup>
+
+Sur le Rapport des ventes, un sélecteur **Période** permet de regrouper les séries temporelles par **Jour**, **Semaine** ou **Mois**.
+
+**Exporter en CSV** en haut à droite du Rapport des ventes — l’export respecte les filtres en cours (dates et partenaire).
+
+<Tip>
+  Conservez la plage glissante de 30 jours par défaut pour un suivi hebdomadaire : assez large pour lisser le bruit quotidien tout en révélant les tendances.
+</Tip>

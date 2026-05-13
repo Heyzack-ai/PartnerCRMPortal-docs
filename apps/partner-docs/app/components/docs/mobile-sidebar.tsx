@@ -5,7 +5,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/lib/theme-config'
+import { getDocsQuickNavLabels } from '@/lib/docs-nav-locale'
 import { DocsSwitcher } from './docs-switcher'
+import { LanguageSwitcher } from './language-switcher'
 import type { Root, Node } from 'fumadocs-core/page-tree'
 
 interface MobileSidebarProps {
@@ -23,6 +25,7 @@ interface MobileSidebarProps {
  */
 export function MobileSidebar({ tree, isOpen, onClose }: MobileSidebarProps) {
   const pathname = usePathname()
+  const { documentation, support, docsHomeHref } = getDocsQuickNavLabels(pathname)
   const panelRef = useRef<HTMLDivElement>(null)
   const touchStart = useRef<{ x: number; y: number; time: number } | null>(null)
   const touchMove = useRef<{ x: number; y: number } | null>(null)
@@ -146,13 +149,14 @@ export function MobileSidebar({ tree, isOpen, onClose }: MobileSidebarProps) {
         <nav className="h-[calc(100%-4rem)] overflow-y-auto p-4">
           <div className="mb-4 sm:hidden">
             <DocsSwitcher variant="mobile" className="flex w-full justify-center" />
+            <LanguageSwitcher variant="mobile" className="mt-3 flex w-full justify-center" />
           </div>
           {/* Quick links */}
           <div className="mb-6 pb-5 border-b border-border">
             <ul className="space-y-1">
               <li>
                 <Link
-                  href="/docs"
+                  href={docsHomeHref}
                   onClick={onClose}
                   className="flex items-center gap-3 py-2 px-2 text-sm text-[var(--accent)] font-medium hover:bg-[var(--accent-muted)] rounded-md transition-colors min-h-[44px]"
                 >
@@ -161,7 +165,7 @@ export function MobileSidebar({ tree, isOpen, onClose }: MobileSidebarProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                   </span>
-                  Documentation
+                  {documentation}
                 </Link>
               </li>
               {siteConfig.links.support && (
@@ -175,7 +179,7 @@ export function MobileSidebar({ tree, isOpen, onClose }: MobileSidebarProps) {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </span>
-                    Support
+                    {support}
                   </a>
                 </li>
               )}

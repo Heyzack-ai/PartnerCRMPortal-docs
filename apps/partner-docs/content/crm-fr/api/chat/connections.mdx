@@ -1,0 +1,273 @@
+---
+title: "GET /api/v1/chat/connections — liste des contacts"
+description: "Récupère les utilisateurs avec lesquels vous pouvez chatter dans le portail HeyZack. La forme de la réponse dépend de votre rôle — partenaire, technicien ou administrateur."
+---
+
+Ce point de terminaison renvoie la liste des contacts disponibles pour le chat. Aucun paramètre de requête n’est nécessaire — l’API déduit votre rôle à partir du jeton Bearer et renvoie le jeu de contacts adapté. Les partenaires voient leurs techniciens connectés plus l’administrateur. Les techniciens voient leurs partenaires connectés plus l’administrateur. Les administrateurs voient tous les partenaires et techniciens de la plateforme.
+
+## Point de terminaison
+
+```
+GET /api/v1/chat/connections
+```
+
+## Authentification
+
+Jeton Bearer obligatoire. Voir [Authentification](/api/authentication).
+
+## Paramètres de requête
+
+Aucun. L’identité et le rôle sont dérivés du jeton.
+
+## Exemple
+
+```bash
+curl "https://<your-portal-domain>/api/v1/chat/connections" \
+  -H "Authorization: Bearer <your-token>"
+```
+
+## Réponse selon le rôle
+
+La forme du tableau `connections` varie légèrement selon le rôle. Pour les partenaires et l’admin, les entrées technicien incluent les champs `availability_status` et `rating`.
+
+<Tabs>
+  <Tab title="Technicien">
+    Un technicien reçoit tous les partenaires auxquels il est connecté, plus le compte administrateur.
+
+    <ResponseField name="connections" type="object[]">
+      Liste des contacts disponibles pour ce technicien.
+
+      <Expandable title="Propriétés d’une connexion">
+        <ResponseField name="id" type="string">
+          Identifiant unique du contact (partenaire ou admin).
+        </ResponseField>
+
+        <ResponseField name="name" type="string">
+          Nom affiché du contact.
+        </ResponseField>
+
+        <ResponseField name="email" type="string">
+          Adresse e-mail du contact.
+        </ResponseField>
+
+        <ResponseField name="image" type="string">
+          URL de l’image de profil, ou `null` si non définie.
+        </ResponseField>
+
+        <ResponseField name="phone" type="string">
+          Numéro de téléphone, ou `null` si indisponible.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="role" type="string">
+      Toujours `"handyman"` pour ce rôle.
+    </ResponseField>
+
+    ```json
+    {
+      "data": {
+        "connections": [
+          {
+            "id": "partner_abc123",
+            "name": "John Doe",
+            "email": "john@example.com",
+            "image": "https://example.com/image.jpg",
+            "phone": "+1234567890"
+          },
+          {
+            "id": "partner_def456",
+            "name": "Jane Smith",
+            "email": "jane@example.com",
+            "image": null,
+            "phone": "+0987654321"
+          },
+          {
+            "id": "admin_xyz789",
+            "name": "Heyzack Admin",
+            "email": "admin@heyzack.ai",
+            "image": null,
+            "phone": null
+          }
+        ],
+        "role": "handyman"
+      }
+    }
+    ```
+  </Tab>
+
+  <Tab title="Partenaire">
+    Un partenaire reçoit tous les techniciens connectés à son compte, plus le compte administrateur. Les entrées technicien incluent `availability_status` et `rating`.
+
+    <ResponseField name="connections" type="object[]">
+      Liste des contacts disponibles pour ce partenaire.
+
+      <Expandable title="Propriétés d’une connexion">
+        <ResponseField name="id" type="string">
+          Identifiant unique du contact (technicien ou admin).
+        </ResponseField>
+
+        <ResponseField name="name" type="string">
+          Nom affiché du contact.
+        </ResponseField>
+
+        <ResponseField name="email" type="string">
+          Adresse e-mail du contact.
+        </ResponseField>
+
+        <ResponseField name="image" type="string">
+          URL de l’image de profil, ou `null` si non définie.
+        </ResponseField>
+
+        <ResponseField name="phone" type="string">
+          Numéro de téléphone, ou `null` si indisponible.
+        </ResponseField>
+
+        <ResponseField name="availability_status" type="string">
+          Disponibilité du technicien, ex. `"Available"` ou `"Busy"`. Absent sur l’entrée admin.
+        </ResponseField>
+
+        <ResponseField name="rating" type="string">
+          Note moyenne du technicien (chaîne), ex. `"4.8"`. Absent sur l’entrée admin.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="role" type="string">
+      Toujours `"partner"` pour ce rôle.
+    </ResponseField>
+
+    ```json
+    {
+      "data": {
+        "connections": [
+          {
+            "id": "handyman_xyz456",
+            "name": "Mike Johnson",
+            "email": "mike@example.com",
+            "image": "https://example.com/image.jpg",
+            "phone": "+1122334455",
+            "availability_status": "Available",
+            "rating": "4.8"
+          },
+          {
+            "id": "handyman_abc789",
+            "name": "Sarah Williams",
+            "email": "sarah@example.com",
+            "image": null,
+            "phone": "+5566778899",
+            "availability_status": "Busy",
+            "rating": "4.9"
+          },
+          {
+            "id": "admin_xyz789",
+            "name": "Heyzack Admin",
+            "email": "admin@heyzack.ai",
+            "image": null,
+            "phone": null
+          }
+        ],
+        "role": "partner"
+      }
+    }
+    ```
+  </Tab>
+
+  <Tab title="Administrateur">
+    Un administrateur reçoit tous les partenaires et tous les techniciens de la plateforme. Les entrées technicien incluent `availability_status` et `rating`.
+
+    <ResponseField name="connections" type="object[]">
+      Liste de tous les partenaires et techniciens.
+
+      <Expandable title="Propriétés d’une connexion">
+        <ResponseField name="id" type="string">
+          Identifiant unique du contact (partenaire ou technicien).
+        </ResponseField>
+
+        <ResponseField name="name" type="string">
+          Nom affiché du contact.
+        </ResponseField>
+
+        <ResponseField name="email" type="string">
+          Adresse e-mail du contact.
+        </ResponseField>
+
+        <ResponseField name="image" type="string">
+          URL de l’image de profil, ou `null` si non définie.
+        </ResponseField>
+
+        <ResponseField name="phone" type="string">
+          Numéro de téléphone, ou `null` si indisponible.
+        </ResponseField>
+
+        <ResponseField name="availability_status" type="string">
+          Disponibilité — uniquement sur les entrées technicien, ex. `"Available"` ou `"Busy"`.
+        </ResponseField>
+
+        <ResponseField name="rating" type="string">
+          Note moyenne (chaîne) — uniquement sur les entrées technicien, ex. `"4.8"`.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="role" type="string">
+      Toujours `"admin"` pour ce rôle.
+    </ResponseField>
+
+    ```json
+    {
+      "data": {
+        "connections": [
+          {
+            "id": "partner_abc123",
+            "name": "John Doe",
+            "email": "john@example.com",
+            "image": "https://example.com/image.jpg",
+            "phone": "+1234567890"
+          },
+          {
+            "id": "partner_def456",
+            "name": "Jane Smith",
+            "email": "jane@example.com",
+            "image": null,
+            "phone": "+0987654321"
+          },
+          {
+            "id": "handyman_xyz456",
+            "name": "Mike Johnson",
+            "email": "mike@example.com",
+            "image": "https://example.com/image.jpg",
+            "phone": "+1122334455",
+            "availability_status": "Available",
+            "rating": "4.8"
+          },
+          {
+            "id": "handyman_abc789",
+            "name": "Sarah Williams",
+            "email": "sarah@example.com",
+            "image": null,
+            "phone": "+5566778899",
+            "availability_status": "Busy",
+            "rating": "4.9"
+          }
+        ],
+        "role": "admin"
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Format des identifiants de salle (`roomId`)
+
+À l’ouverture d’une conversation, l’identifiant de salle est dérivé de façon déterministe des identifiants des participants. Ce `roomId` apparaît dans les réponses des messages et de l’historique.
+
+| Type de conversation | Format du room ID | Exemple |
+|-------------------|---------------|---------|
+| Partenaire ↔ Technicien | `room_{id1_trié}_{id2_trié}` | `room_partner_abc123_handyman_xyz456` |
+| Admin ↔ Partenaire | `room_admin_{partnerId}` | `room_admin_partner_abc123` |
+| Admin ↔ Technicien | `room_admin_{handymanId}` | `room_admin_handyman_xyz456` |
+
+<Note>
+  Pour les salles partenaire–technicien, les deux identifiants sont triés alphabétiquement avant concaténation, afin que les deux parties utilisent toujours la même salle quel que soit l’initiateur.
+</Note>

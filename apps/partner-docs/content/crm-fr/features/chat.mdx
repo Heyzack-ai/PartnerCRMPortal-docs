@@ -1,0 +1,73 @@
+---
+title: "Chat en temps réel avec partenaires et techniciens"
+description: "Échanger en temps réel avec partenaires, techniciens et administrateurs dans le CRM HeyZack — texte et pièces jointes image."
+---
+
+La section **Chat** permet de communiquer en temps réel sans quitter le tableau de bord. Les partenaires joignent leurs techniciens connectés ou l’équipe admin HeyZack ; les techniciens font de même. Les administrateurs peuvent contacter n’importe quel partenaire ou technicien. Les messages s’affichent instantanément et l’historique reste consultable.
+
+## Qui peut parler à qui
+
+Trois types de conversations :
+
+<CardGroup cols={3}>
+  <Card title="Partenaire ↔ Technicien" icon="wrench">
+    Possible lorsqu’une installation ou un chantier commun relie les deux profils.
+  </Card>
+  <Card title="Partenaire ↔ Admin" icon="building-2">
+    Le partenaire contacte l’admin HeyZack à tout moment ; l’inverse est possible.
+  </Card>
+  <Card title="Technicien ↔ Admin" icon="user">
+    Le technicien joint l’admin directement ; l’admin peut initier sans condition de liaison.
+  </Card>
+</CardGroup>
+
+<Note>
+  Partenaire ↔ technicien exige un lien par installation ou chantier commun. Sans connexion, la conversation ne peut pas démarrer.
+</Note>
+
+## Démarrer une conversation
+
+<Steps>
+  <Step title="Ouvrir Chat">
+    **Chat** dans la barre latérale. Liste des contacts disponibles.
+  </Step>
+  <Step title="Rechercher">
+    Filtrez par nom, e-mail ou téléphone.
+  </Step>
+  <Step title="Sélectionner">
+    Clic sur un contact pour ouvrir le fil de discussion.
+  </Step>
+</Steps>
+
+## Message d’accueil
+
+Lorsqu’un partenaire ou un technicien ouvre un chat avec l’admin pour la première fois, un message automatique apparaît en tête de fil :
+
+> « Bienvenue chez HeyZack ! Comment pouvons-nous vous aider aujourd’hui ? »
+
+Ce message provient du compte admin et n’apparaît que dans les fils partenaire→admin et technicien→admin, ni dans les chats partenaire↔technicien ni quand l’admin ouvre la conversation en premier.
+
+## Envoyer des messages
+
+Saisissez le texte en bas de l’écran et appuyez sur **Entrée** ou cliquez sur **Envoyer**. Texte brut uniquement. **Entrée** envoie le message sans utiliser la souris.
+
+## Envoyer une image
+
+Icône **trombone** pour joindre une image. Formats acceptés :
+
+- JPEG
+- PNG
+- WebP
+- GIF
+
+Un aperçu s’affiche au-dessus du champ avant envoi. **Annuler** pour retirer un mauvais fichier.
+
+## Historique
+
+Jusqu’à 50 messages par page, ordre chronologique (plus anciens en premier). Faites défiler vers le haut pour charger les messages plus anciens. À l’ouverture du fil ou à l’arrivée d’un nouveau message, la vue se positionne sur le dernier message.
+
+## Livraison en temps réel
+
+Pas besoin d’actualiser la page — les messages entrants apparaissent dès réception.
+
+Référence API : [Envoyer un message](/api/chat/send-message).

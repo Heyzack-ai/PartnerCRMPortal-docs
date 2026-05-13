@@ -1,0 +1,120 @@
+---
+title: "Flux des statuts d’installation, de la planification à l’accord client"
+description: "Chaque statut, regroupements dans le portail, et actions possibles (affectation, rejet)."
+---
+
+Chaque installation a un statut qui indique l’étape exacte du chantier. Les statuts avancent selon le travail du technicien et certaines actions portail (affectation, rejet). Maîtriser la liste permet de piloter le pipeline et d’agir au bon moment.
+
+## Tous les statuts
+
+<AccordionGroup>
+  <Accordion title="SCHEDULED">
+    Installation créée avec une date, sans technicien affecté. Statut initial.
+  </Accordion>
+  <Accordion title="INSTALLER_ASSIGNED">
+    Technicien affecté. Chantier confirmé, en attente du déplacement.
+  </Accordion>
+  <Accordion title="EN_ROUTE">
+    Le technicien affecté est en route vers l’adresse client.
+  </Accordion>
+  <Accordion title="INSTALLATION_IN_PROGRESS">
+    Technicien sur site, installation en cours.
+  </Accordion>
+  <Accordion title="INSTALLATION_COMPLETED">
+    Travaux physiques terminés. Passage à la phase contrat / validation.
+  </Accordion>
+  <Accordion title="CONTRACT_SENT">
+    Contrat envoyé au client pour lecture et signature.
+  </Accordion>
+  <Accordion title="CONTRACT_SIGNED">
+    Contrat signé. En attente de l’accord final du client.
+  </Accordion>
+  <Accordion title="CUSTOMER_APPROVED">
+    Accord formel du client sur l’installation terminée. Statut terminal de succès.
+  </Accordion>
+  <Accordion title="CANCELLED">
+    Installation annulée. Aucune action ultérieure.
+  </Accordion>
+  <Accordion title="REJECTED">
+    Refus par le partenaire. Aucune action ultérieure. Motif enregistré.
+  </Accordion>
+</AccordionGroup>
+
+## Regroupements dans le portail
+
+Les cartes de synthèse et le filtre **Statut** utilisent cinq groupes :
+
+| Groupe | Statuts inclus |
+|---|---|
+| **Planifié** | `SCHEDULED`, `INSTALLER_ASSIGNED` |
+| **En route** | `EN_ROUTE` |
+| **En cours** | `INSTALLATION_IN_PROGRESS`, `INSTALLATION_COMPLETED`, `CONTRACT_SENT`, `CONTRACT_SIGNED` |
+| **Approuvé** | `CUSTOMER_APPROVED` |
+| **Rejeté** | `CANCELLED`, `REJECTED` |
+
+<Note>
+  Un filtre par groupe inclut tous les statuts individuels du groupe. Ex. **En cours** affiche les quatre statuts listés ci-dessus.
+</Note>
+
+## Déroulement type d’une installation réussie
+
+<Steps>
+  <Step title="Planifié">
+    Création du dossier. Statut : `SCHEDULED`.
+  </Step>
+  <Step title="Technicien affecté">
+    Affectation depuis la liste ou la fiche. Statut : `INSTALLER_ASSIGNED`.
+  </Step>
+  <Step title="En route">
+    Le technicien confirme le déplacement. Statut : `EN_ROUTE`.
+  </Step>
+  <Step title="Installation en cours">
+    Arrivée sur site et travail. Statut : `INSTALLATION_IN_PROGRESS`.
+  </Step>
+  <Step title="Installation terminée">
+    Fin des travaux physiques. Statut : `INSTALLATION_COMPLETED`.
+  </Step>
+  <Step title="Contrat envoyé">
+    Envoi au client. Statut : `CONTRACT_SENT`.
+  </Step>
+  <Step title="Contrat signé">
+    Signature client. Statut : `CONTRACT_SIGNED`.
+  </Step>
+  <Step title="Accord client">
+    Validation finale. Statut : `CUSTOMER_APPROVED`. Chantier clôturé.
+  </Step>
+</Steps>
+
+## Actions autorisées par statut
+
+| Statut | Affecter | Réaffecter | Rejeter |
+|---|---|---|---|
+| `SCHEDULED` | Oui | Non | Oui |
+| `INSTALLER_ASSIGNED` | Non | Oui | Non |
+| `EN_ROUTE` | Non | Oui | Non |
+| `INSTALLATION_IN_PROGRESS` | Non | Non | Non |
+| `INSTALLATION_COMPLETED` | Non | Non | Non |
+| `CONTRACT_SENT` | Non | Non | Non |
+| `CONTRACT_SIGNED` | Non | Non | Non |
+| `CUSTOMER_APPROVED` | Non | Non | Non |
+| `CANCELLED` | Non | Non | Non |
+| `REJECTED` | Non | Non | Non |
+
+<Warning>
+  Après `CANCELLED` ou `REJECTED`, plus aucune action. Pour reprendre un chantier, créez une nouvelle installation.
+</Warning>
+
+<Tip>
+  Les boutons **Affecter** et **Rejeter** n’apparaissent que lorsque l’action est permise pour le statut courant.
+</Tip>
+
+## Voir aussi
+
+<CardGroup cols={2}>
+  <Card title="Planifier une installation" icon="calendar-plus" href="/installations/scheduling">
+    Créer un dossier et définir la date initiale
+  </Card>
+  <Card title="Affecter un technicien" icon="hard-hat" href="/installations/handyman-assignment">
+    Affecter ou réaffecter pour faire avancer le chantier
+  </Card>
+</CardGroup>

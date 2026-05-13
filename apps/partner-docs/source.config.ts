@@ -5,8 +5,16 @@ export const partner = defineDocs({
   dir: 'content/partner',
 })
 
+export const partnerFr = defineDocs({
+  dir: 'content/partner-fr',
+})
+
 export const crm = defineDocs({
   dir: 'content/crm',
+})
+
+export const crmFr = defineDocs({
+  dir: 'content/crm-fr',
 })
 
 export default defineConfig({

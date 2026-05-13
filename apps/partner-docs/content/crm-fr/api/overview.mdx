@@ -1,0 +1,69 @@
+---
+title: "Vue d’ensemble de l’API REST HeyZack CRM"
+description: "URL de base, versionnement, format des requêtes et réponses, en-tête d’authentification et codes HTTP."
+---
+
+L’API REST du CRM HeyZack permet d’intégrer la messagerie, les connexions et d’autres fonctions à vos applications. Les points de terminaison utilisent JSON sur HTTPS, exigent un jeton Bearer et enveloppent les réponses réussies dans une clé `data`.
+
+## URL de base
+
+```
+https://<domaine-de-votre-portail>/api/v1
+```
+
+Remplacez `<domaine-de-votre-portail>` par le domaine de votre instance HeyZack CRM.
+
+## Versionnement
+
+La version actuelle de l’API est **v1**, incluse dans chaque chemin (`/api/v1/...`). Lorsqu’une nouvelle version majeure sort, l’ancienne reste disponible sur son chemin jusqu’à fin de période de dépréciation.
+
+## Format des requêtes
+
+Pour les requêtes `POST`, envoyez un corps JSON avec l’en-tête :
+
+```
+Content-Type: application/json
+```
+
+Les `GET` utilisent des paramètres en chaîne de requête.
+
+## Authentification
+
+Chaque requête doit inclure un jeton Bearer :
+
+```
+Authorization: Bearer <votre-jeton>
+```
+
+Voir [Authentification](/api/authentication) pour l’obtention et l’usage des jetons.
+
+## Format des réponses
+
+Succès : HTTP `200` et corps de la forme :
+
+```json
+{
+  "data": { }
+}
+```
+
+## Réponses d’erreur
+
+En cas d’échec, un objet JSON avec une clé `error` :
+
+```json
+{
+  "error": "Message d’erreur ici"
+}
+```
+
+## Codes HTTP
+
+| Code | Signification |
+|------|---------|
+| 200  | Succès |
+| 400  | Requête incorrecte — paramètres manquants ou invalides |
+| 401  | Non autorisé — jeton absent ou invalide |
+| 403  | Interdit — jeton valide mais droits insuffisants |
+| 404  | Ressource introuvable |
+| 500  | Erreur interne du serveur |

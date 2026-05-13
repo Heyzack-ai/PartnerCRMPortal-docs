@@ -1,0 +1,86 @@
+---
+title: "Affecter et réaffecter des techniciens aux installations"
+description: "Affecter un technicien vérifié, réaffecter si les plans changent, et impact sur le statut du dossier."
+---
+
+Chaque installation doit avoir un technicien avant le travail sur site. Vous pouvez affecter à la planification ou plus tard depuis la liste. La réaffectation reste possible tant que le dossier est dans une phase active compatible.
+
+## Quand affecter ou réaffecter
+
+| Situation | Bouton |
+|---|---|
+| Pas de technicien et statut ni Annulé ni Rejeté | **Affecter** |
+| Technicien déjà affecté et statut Technicien affecté ou En route | **Réaffecter** |
+| Annulé ou Rejeté | Aucun bouton — verrouillé |
+
+<Note>
+  Pas d’affectation ni de réaffectation sur un dossier annulé ou rejeté. Créez une nouvelle installation si le chantier doit reprendre.
+</Note>
+
+## Affecter un technicien
+
+<Steps>
+  <Step title="Trouver la ligne">
+    Colonne technicien : « Aucun technicien affecté » et bouton **Affecter**.
+  </Step>
+  <Step title="Affecter">
+    Clic sur **Affecter** — modale d’affectation.
+  </Step>
+  <Step title="Choisir le mode">
+    - **M’assigner** — le chantier est sur votre propre compte (vous intervenez sur le terrain).
+    - **Affecter à un technicien** — liste déroulante de l’équipe.
+  </Step>
+  <Step title="Sélection (si équipe)">
+    Liste des techniciens **vérifiés** du compte partenaire. Seuls eux apparaissent.
+  </Step>
+  <Step title="Confirmer">
+    **Confirmer** (auto-affectation) ou **Affecter** (équipe). La ligne se met à jour. Statut : `INSTALLER_ASSIGNED`.
+  </Step>
+</Steps>
+
+## Réaffecter
+
+Possible tant que le statut est **Technicien affecté** ou **En route**. Au-delà, la réaffectation n’est plus proposée.
+
+<Steps>
+  <Step title="Repérer la ligne">
+    Bouton **Réaffecter** à côté du nom du technicien actuel.
+  </Step>
+  <Step title="Réaffecter">
+    Même modale : vous-même ou autre technicien de la liste.
+  </Step>
+  <Step title="Valider">
+    **Confirmer** ou **Affecter**. La fiche affiche immédiatement le nouveau technicien.
+  </Step>
+</Steps>
+
+<Warning>
+  La réaffectation n’avertit pas automatiquement l’ancien ni le nouveau technicien. Prévenez-les en direct.
+</Warning>
+
+## Après l’affectation
+
+Le statut passe à **Technicien affecté**, compté dans le groupe **Planifié** des cartes et du filtre.
+
+Ensuite, le technicien fait progresser les statuts :
+
+1. **En route** pendant le trajet.
+2. Puis groupe **En cours** pendant travaux et étapes contractuelles.
+3. **Accord client** à la clôture.
+
+Référence complète : [Statuts d’installation](/installations/statuses).
+
+## Modale d’affectation
+
+<AccordionGroup>
+  <Accordion title="M’assigner">
+    Panneau de confirmation avec votre nom et e-mail. **Confirmer** pour valider — utile si vous installez vous-même en plus de piloter le portail.
+  </Accordion>
+  <Accordion title="Affecter à un technicien">
+    Liste des techniciens vérifiés avec nom et e-mail. Choix puis **Affecter**.
+
+    <Note>
+      Seuls les comptes vérifiés sont listés. Si un membre manque, vérifiez son statut dans **Techniciens**.
+    </Note>
+  </Accordion>
+</AccordionGroup>

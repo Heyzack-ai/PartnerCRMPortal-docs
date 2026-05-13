@@ -1,0 +1,9 @@
+{
+  "title": "API Chat",
+  "pages": [
+    "send-message",
+    "upload-image",
+    "history",
+    "connections"
+  ]
+}

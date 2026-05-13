@@ -15,17 +15,34 @@ import { YouTube } from './youtube'
 import { Pre } from './pre'
 import { CodeGroup, Expandable, ParamField, ResponseField } from './api-fields'
 
-export type DocsContentBase = '/docs' | '/docs/crm'
+export type DocsContentBase = '/docs' | '/docs/crm' | '/docs/fr' | '/docs/crm/fr'
 
 function normalizeDocsHref(href: string | undefined, docsBase: DocsContentBase): string {
   if (!href) return ''
   if (href.startsWith('http') || href.startsWith('#')) return href
   if (href.startsWith(docsBase + '/') || href === docsBase) return href
+
+  if (docsBase === '/docs/crm/fr') {
+    if (href.startsWith('/docs/crm/fr')) return href
+    if (href.startsWith('/docs/crm/')) {
+      return `/docs/crm/fr${href.slice('/docs/crm'.length)}`
+    }
+    if (href.startsWith('/docs/')) {
+      return `/docs/crm/fr${href.slice('/docs'.length)}`
+    }
+  }
   if (docsBase === '/docs/crm') {
     if (href.startsWith('/docs/crm')) return href
     if (href.startsWith('/docs/')) {
       return `/docs/crm${href.slice('/docs'.length)}`
     }
+  }
+  if (docsBase === '/docs/fr') {
+    if (href.startsWith('/docs/fr')) return href
+    if (href.startsWith('/docs/')) {
+      return `/docs/fr${href.slice('/docs'.length)}`
+    }
+    if (href === '/docs') return '/docs/fr'
   }
   if (href.startsWith('/docs')) return href
   if (href.startsWith('/')) return `${docsBase}${href}`

@@ -1,0 +1,90 @@
+---
+title: "Suivre, qualifier et convertir les leads en clients"
+description: "Capture et gestion des prospects dans le CRM HeyZack — qualification, jetons de parrainage partenaire et conversion en commandes."
+---
+
+La page **Leads** couvre tout le parcours d’un prospect, de l’expression d’intérêt à la conversion. Création manuelle, suivi de l’apport partenaire, filtres par statut ou priorité, et génération d’un jeton personnalisé pour un parcours de devis en libre-service.
+
+## Qu’est-ce qu’un lead ?
+
+Prospect maison connectée. Entrées dans le système :
+
+- **Parrainage partenaire** — lien unique (fonction Générer un jeton) rempli par le prospect.
+- **Création manuelle** — un membre de l’équipe crée le lead via **Créer un lead**.
+
+Chaque lead conserve nom, e-mail, localisation, partenaire ou membre assigné, source, statut et priorité.
+
+## Statuts des leads
+
+<CardGroup cols={2}>
+  <Card title="Nouveau" icon="circle">
+    Lead créé, pas encore de prise de contact.
+  </Card>
+  <Card title="Contacté" icon="phone">
+    Votre équipe ou le partenaire a relancé le prospect.
+  </Card>
+  <Card title="Qualifié / Devis demandé" icon="file-text">
+    Prospect pertinent ou demande de devis formulée.
+  </Card>
+  <Card title="Converti" icon="circle-check">
+    Le lead est devenu client et intégré au système.
+  </Card>
+</CardGroup>
+
+## Parcourir les leads
+
+Barre de recherche et filtres en tête de page :
+
+- **Recherche** — nom, e-mail ou lieu. Résultats instantanés.
+- **Filtrer par statut** — une étape précise. La liste déroulante reflète les statuts réellement présents dans vos données.
+- **Filtrer par priorité** — **Haute**, **Moyenne** ou **Basse** (rouge, ambre, vert).
+
+Les trois contrôles sont cumulables.
+
+## Créer un lead
+
+<Steps>
+  <Step title="Ouvrir la boîte de création">
+    **Créer un lead** en haut à droite de la page Leads.
+  </Step>
+  <Step title="Renseigner les champs">
+    Nom, e-mail, lieu, source, priorité, partenaire assigné, etc.
+  </Step>
+  <Step title="Enregistrer">
+    Validation du formulaire. Le lead apparaît avec le statut **Nouveau**.
+  </Step>
+</Steps>
+
+## Générer un jeton
+
+Crée un lien personnalisé et limité dans le temps pour un parcours de devis ou d’onboarding sans compte portail complet.
+
+<Steps>
+  <Step title="Repérer le lead">
+    Recherche ou filtres dans le tableau.
+  </Step>
+  <Step title="Icône clé">
+    Colonne Actions, bouton clé — ouvre la boîte **Générer un jeton**.
+  </Step>
+  <Step title="Copier et partager">
+    Copiez le lien et envoyez-le au client par e-mail ou messagerie.
+  </Step>
+</Steps>
+
+<Note>
+  Vous pouvez aussi générer un jeton depuis la page **Commandes** lorsqu’un lead correspond à l’e-mail d’une commande. Sans lead existant, le portail propose d’abord d’en créer un.
+</Note>
+
+## Fiche lead
+
+Clic sur une ligne (ou icône œil dans Actions) pour la fiche complète : données capturées, partenaire, source, chronologie et historique de conversion.
+
+![Vue liste fiche lead](/leads-lead-details.png)
+
+## Convertir un lead
+
+Une fois le lead **Qualifié**, vous pouvez lancer la conversion : création ou liaison d’une fiche client et d’une commande, statut du lead passé à **Converti**. Après conversion, **Générer un jeton** n’est plus proposé — le client est déjà intégré.
+
+<Tip>
+  Maintenez les statuts à jour tout au long du dialogue commercial. Des statuts précis rendent les filtres du pipeline utiles et donnent aux partenaires une vision fidèle de leurs parrainages.
+</Tip>

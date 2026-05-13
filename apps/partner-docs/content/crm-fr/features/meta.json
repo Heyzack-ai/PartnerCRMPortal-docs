@@ -1,0 +1,12 @@
+{
+  "title": "Fonctionnalités",
+  "pages": [
+    "dashboard",
+    "installations",
+    "leads",
+    "orders",
+    "payments",
+    "chat",
+    "activity-logs"
+  ]
+}

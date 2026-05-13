@@ -7,6 +7,7 @@ import { SearchTrigger } from './search-dialog'
 import { ThemeToggle } from './theme-toggle'
 import { MobileSidebar } from './mobile-sidebar'
 import { DocsSwitcher } from './docs-switcher'
+import { LanguageSwitcher } from './language-switcher'
 import { siteConfig } from '@/lib/theme-config'
 import type { Root } from 'fumadocs-core/page-tree'
 
@@ -64,6 +65,7 @@ export function DocsHeader({ tree, searchApi = '/api/search' }: DocsHeaderProps)
             {/* Right: Docs switcher + links */}
             <div className="flex items-center gap-1 sm:gap-2">
               <DocsSwitcher className="hidden sm:flex shrink-0" />
+              <LanguageSwitcher className="hidden sm:flex shrink-0" />
               <ThemeToggle />
             </div>
           </div>

@@ -1,0 +1,98 @@
+---
+title: "Planifier des installations maison connectée pour vos clients"
+description: "Créer une installation, date et heure, notes, affectation optionnelle du technicien — depuis le formulaire Planifier."
+---
+
+Lorsque le client valide le passage à l’acte, vous créez une installation dans le portail pour figer la date et lancer le flux. Le formulaire rassemble les informations nécessaires au suivi. Vous pouvez replanifier plus tard ou rejeter un dossier impossible.
+
+## Créer une installation
+
+<Steps>
+  <Step title="Ouvrir le formulaire">
+    Page **Installations**, bouton **Planifier une installation**. Le formulaire s’ouvre en modale.
+  </Step>
+  <Step title="Choisir le client">
+    Champ **Client** : recherche par nom. La liste affiche nom, e-mail et adresse d’intervention. Sélectionnez la bonne fiche.
+
+    <Note>
+      Seuls les clients **actifs** apparaissent. Si un client manque, vérifiez qu’il existe et est actif dans **Clients**.
+    </Note>
+  </Step>
+  <Step title="Date prévue">
+    Champ **Date prévue** : calendrier. La valeur alimente la fiche et la vue calendrier.
+  </Step>
+  <Step title="Articles">
+    Section **Articles** : libellé produit ou appareil et quantité par ligne. **Ajouter un article** pour plusieurs lignes. Au moins une ligne obligatoire — les libellés composent le titre de l’installation.
+  </Step>
+  <Step title="Notes (facultatif)">
+    Consignes, accès, rappels pour le terrain ou l’équipe interne.
+  </Step>
+  <Step title="Technicien (facultatif)">
+    Champ **Technicien** : recherche parmi les profils **Disponibles**. Laissez vide pour affecter plus tard depuis la liste.
+  </Step>
+  <Step title="Valider">
+    **Planifier l’installation**. Création avec statut **Planifié**, apparition dans la liste et le calendrier.
+  </Step>
+</Steps>
+
+## Vue calendrier
+
+Après planification, la vue **Calendrier** montre la répartition mensuelle. Les dates avec au moins une installation sont mises en évidence (code couleur selon le statut dominant du jour).
+
+<AccordionGroup>
+  <Accordion title="Vue mois">
+    Calendrier mensuel avec dates surlignées. Clic sur une date : panneau listant les installations (client, heure, adresse, technicien). Clic sur une entrée : fiche détail.
+  </Accordion>
+  <Accordion title="Vue semaine">
+    Les sept jours de la semaine en liste défilante, installations par jour. Idéal pour la charge hebdomadaire.
+  </Accordion>
+  <Accordion title="Vue jour">
+    Une date sélectionnée et toutes les installations du jour — pratique le jour J.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  La plage de dates du filtre n’est disponible qu’en liste. Pour une fenêtre précise, repassez en vue liste et utilisez le sélecteur de dates.
+</Tip>
+
+## Filtrer par plage en vue liste
+
+1. **Filtrer par date** dans la barre de filtres.
+2. Choisir la date de début (mise en surbrillance).
+3. Choisir la date de fin, ou une seule date pour ce jour uniquement.
+4. La liste se met à jour automatiquement.
+
+Pour effacer, rouvrez le sélecteur et désélectionnez les dates.
+
+## Replanifier
+
+1. **Voir le détail** sur la ligne concernée.
+2. Sur la fiche, modifiez la date prévue via le calendrier.
+3. Confirmez. La liste et le calendrier se mettent à jour.
+
+<Warning>
+  La replanification n’envoie pas automatiquement de notification au client ni au technicien. Prévenez-les avant de modifier l’enregistrement.
+</Warning>
+
+## Rejeter une installation
+
+Si le chantier ne peut pas avoir lieu : motif obligatoire.
+
+<Steps>
+  <Step title="Repérer la ligne">
+    Le bouton **Rejeter** apparaît lorsqu’aucun technicien n’est affecté et que le dossier n’est pas déjà annulé ou rejeté.
+  </Step>
+  <Step title="Rejeter">
+    Clic sur **Rejeter** — modale de confirmation.
+  </Step>
+  <Step title="Motif">
+    Saisissez un motif (obligatoire).
+  </Step>
+  <Step title="Confirmer">
+    **Rejeter l’installation**. Statut **Rejeté**, classement dans le groupe correspondant.
+  </Step>
+</Steps>
+
+<Note>
+  Un dossier rejeté ne peut pas être réactivé. Pour un nouveau chantier, créez une nouvelle installation pour le client.
+</Note>

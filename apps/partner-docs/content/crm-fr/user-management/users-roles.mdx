@@ -1,0 +1,90 @@
+---
+title: "Créer, modifier et supprimer des comptes utilisateurs"
+description: "Création de comptes internes, attribution des rôles Administrateur, Manager ou Support, modification et suppression dans le CRM HeyZack."
+---
+
+Le portail permet de créer des comptes pour votre équipe interne et de contrôler l’accès de chacun. Chaque compte a l’un des trois rôles — **Administrateur**, **Manager** ou **Support** — qui définit le niveau d’accès global.
+
+## Créer un utilisateur
+
+**Paramètres**, onglet **Créer un utilisateur**.
+
+<Steps>
+  <Step title="Renseigner l’utilisateur">
+    Champs obligatoires :
+
+    - **Nom complet** — nom affiché dans le portail
+    - **Adresse e-mail** — connexion et notifications système
+    - **Mot de passe** — mot de passe initial sécurisé
+  </Step>
+  <Step title="Choisir un rôle">
+    Liste **Rôle** :
+
+    - **Administrateur** — accès complet ; les cases de permissions menu sont sans effet
+    - **Manager** — accès limité aux menus cochés
+    - **Support** — accès limité aux menus cochés
+
+    <Note>
+      Avec le rôle Administrateur, toutes les sections restent accessibles quelles que soient les cases cochées.
+    </Note>
+  </Step>
+  <Step title="Permissions menu">
+    Cochez chaque entrée de menu autorisée. **Tout sélectionner** accorde tout d’un coup.
+
+    S’applique uniquement aux rôles Manager et Support. Liste détaillée : [Configurer les permissions menu](/user-management/permissions).
+  </Step>
+  <Step title="Valider">
+    **Créer l’utilisateur**. Le compte est actif immédiatement.
+  </Step>
+</Steps>
+
+## Liste des utilisateurs
+
+**Paramètres**, onglet **Gérer les rôles**. Colonnes :
+
+| Colonne | Description |
+|--------|-------------|
+| Nom | Nom complet |
+| E-mail | Adresse de connexion |
+| Rôle | Badge Admin, Manager ou Support |
+| Statut | Compte actif ou inactif |
+| Actions | Modifier et Supprimer |
+
+Barre de recherche par nom ou e-mail.
+
+## Modifier un rôle
+
+<Steps>
+  <Step title="Repérer l’utilisateur">
+    Tableau **Gérer les rôles**, recherche si besoin.
+  </Step>
+  <Step title="Modifier">
+    **Modifier** sur la ligne — formulaire de mise à jour sous le tableau.
+  </Step>
+  <Step title="Nouveau rôle">
+    Liste **Nouveau rôle**.
+  </Step>
+  <Step title="Enregistrer">
+    **Mettre à jour le rôle**. Prise d’effet immédiate.
+  </Step>
+</Steps>
+
+## Supprimer un utilisateur
+
+Dans **Gérer les rôles**, **Supprimer** sur la ligne concernée. Une confirmation s’affiche avant suppression définitive du compte.
+
+<Warning>
+  Vous ne pouvez pas supprimer votre propre compte — le bouton Supprimer est masqué pour l’utilisateur connecté.
+</Warning>
+
+## Rôles disponibles
+
+| Rôle | Accès |
+|------|--------|
+| Administrateur | Toutes les fonctionnalités |
+| Manager | Contrôlé par les permissions menu |
+| Support | Contrôlé par les permissions menu |
+
+<Tip>
+  Utilisez **Manager** pour les chefs d’équipe ayant besoin d’un accès large, et **Support** pour les agents limités à un sous-ensemble (ex. Leads ou Chat).
+</Tip>

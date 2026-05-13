@@ -1,0 +1,88 @@
+---
+title: "Comprendre les KPI et indicateurs du tableau de bord"
+description: "Détail de chaque carte KPI : définition, calcul, format et que faire si un chiffre semble incohérent."
+---
+
+Sept cartes KPI donnent une lecture instantanée des principaux axes de l’activité. Cette page précise ce que mesure chaque indicateur, d’où viennent les données et comment les valeurs sont affichées.
+
+## Total clients
+
+**Contenu :** nombre total de clients enregistrés sur votre compte partenaire.
+
+Le décompte inclut toutes les fiches, actives ou inactives. La valeur est celle de la base au moment du chargement de la page.
+
+<Tip>
+  Si le total semble bas, ouvrez la section Clients — des fiches inactives comptent tout de même dans ce total.
+</Tip>
+
+## Installations actives
+
+**Contenu :** nombre total de dossiers d’installation enregistrés.
+
+Il s’agit de tous les chantiers liés à votre compte, tous statuts confondus. L’intitulé « actives » désigne ici l’ensemble du pipeline, pas seulement les chantiers « en cours ».
+
+<Note>
+  Pour les seuls chantiers clôturés côté client, reportez-vous à la carte **Installations terminées**.
+</Note>
+
+## Installations terminées
+
+**Contenu :** nombre d’installations ayant reçu l’accord du client.
+
+Un chantier n’est compté comme terminé que lorsqu’il atteint le statut **Accord client** — étape finale où le client confirme que le travail lui convient. C’est le signal le plus fiable d’une clôture complète.
+
+<AccordionGroup>
+  <Accordion title="Que signifie « Accord client » ?">
+    C’est le dernier statut du flux installation. Il est appliqué lorsque le client valide le chantier terminé — en général après une note de satisfaction. Tant que ce statut n’est pas atteint, le chantier n’entre pas dans « Installations terminées », même si le technicien a fini sur le terrain.
+  </Accordion>
+  <Accordion title="Pourquoi ce nombre est-il inférieur à « Installations actives » ?">
+    « Installations actives » compte tous les dossiers. « Installations terminées » ne compte que ceux au statut Accord client. Les chantiers planifiés, en cours ou en attente de retour client ne sont pas inclus ici.
+  </Accordion>
+</AccordionGroup>
+
+## Techniciens disponibles
+
+**Contenu :** disponibilité sous la forme `disponibles / total` sur votre effectif.
+
+Exemple : `3/5` signifie trois techniciens disponibles sur cinq. Un technicien est « disponible » lorsque son statut de disponibilité est **Disponible**.
+
+<Tip>
+  Si le nombre disponible est bas, ouvrez la section Techniciens et mettez à jour les statuts individuels si besoin.
+</Tip>
+
+## Chiffre d’affaires mensuel
+
+**Contenu :** chiffre d’affaires total du mois en cours, en EUR.
+
+La valeur provient des données de palier partenaire et reflète le volume du mois de facturation en cours. Affichage en nombre entier en euros (ex. `4 200 €`).
+
+Ce chiffre sert notamment au calcul du palier et de la progression vers le palier suivant. Voir [Paliers partenaire](/dashboard/partner-tier).
+
+## Satisfaction client
+
+**Contenu :** note moyenne sur 5, calculée sur toutes les installations notées.
+
+Les notes sont collectées après passage au statut `CUSTOMER_APPROVED`. La moyenne porte uniquement sur les installations ayant une note. Affichage avec une décimale (ex. `4,3/5`).
+
+S’il n’y a encore aucune note, la carte affiche `N/A`.
+
+<AccordionGroup>
+  <Accordion title="Comment la moyenne est-elle calculée ?">
+    Somme des notes individuelles divisée par le nombre de notes. Les installations sans note sont exclues.
+  </Accordion>
+  <Accordion title="Répartition des notes ?">
+    Le système conserve le détail des scores de 1 à 5. Vous pouvez consulter la répartition complète dans la section Satisfaction du portail.
+  </Accordion>
+</AccordionGroup>
+
+## Crédit disponible
+
+**Contenu :** solde actuel de crédits partenaire (EUR), utilisable sur les commandes Shopify.
+
+Les crédits sont acquis via le programme partenaire HeyZack selon votre palier et votre performance. Le montant affiché est celui utilisable immédiatement, en euros entiers.
+
+Si le solde est supérieur à zéro, l’action **Utiliser le crédit** sur cette carte ouvre le flux d’application à une commande. Voir [Paliers partenaire](/dashboard/partner-tier).
+
+<Warning>
+  L’application d’un crédit génère un bon de réduction et diminue immédiatement le solde. Vérifiez le montant du panier et le crédit saisi avant validation — l’action n’est pas annulable depuis le tableau de bord.
+</Warning>

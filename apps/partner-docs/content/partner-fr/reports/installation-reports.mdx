@@ -1,0 +1,88 @@
+---
+title: "Rapports et analyses de performance des installations"
+description: "Volume, taux de complétion, durée moyenne des chantiers et tendances quotidiennes pour piloter le pipeline."
+---
+
+L’onglet **Installations** des rapports détaille la performance opérationnelle sur la plage choisie. Les données proviennent de chaque dossier d’installation du compte : quatre indicateurs clés en tête, puis graphiques et répartition par type d’appareil.
+
+## Indicateurs clés
+
+Quatre cartes sous l’onglet Installations, mises à jour selon la plage de dates.
+
+| Indicateur | Mesure |
+|---|---|
+| **Total installations** | Nombre de dossiers sur la période, tous statuts confondus |
+| **Taux de complétion** | Part des installations terminées par rapport au total (terminées ÷ total × 100) |
+| **Durée moyenne d’installation** | Heures moyennes du début à la fin du chantier (référence système actuelle : 2,2 h selon types) |
+| **Backlog en attente** | Installations ni terminées ni annulées — tout ce qui est encore planifié ou en cours |
+
+<Note>
+  Le taux de complétion ne compte dans le numérateur que les chantiers réellement terminés. Les planifiés et en cours augmentent le dénominateur : un fort pipeline de futurs chantiers abaisse mécaniquement le pourcentage.
+</Note>
+
+## Répartition par statut
+
+- **Terminées** — chantiers approuvés par le client, inclus dans le taux de complétion
+- **Planifiées** — date confirmée et technicien affecté, travail pas encore démarré
+- **En attente / En cours** — tout le reste hors terminé ou annulé
+
+<Tip>
+  Surveillez le **backlog**. S’il croît vite par rapport à l’effectif, anticipez le recrutement ou l’ajustement de la planification.
+</Tip>
+
+## Filtrer par plage de dates
+
+Le sélecteur en tête de page **Rapports** pilote cet onglet. Choisissez **Aujourd’hui**, **7 / 30 / 90 derniers jours** ou une **plage personnalisée**.
+
+<Steps>
+  <Step title="Ouvrir Rapports">
+    **Rapports** dans la barre latérale — onglet Installations par défaut.
+  </Step>
+  <Step title="Choisir la plage">
+    Presets ou **Personnalisé** avec calendrier début / fin.
+  </Step>
+  <Step title="Consulter">
+    Les quatre cartes et les graphiques se rafraîchissent automatiquement.
+  </Step>
+</Steps>
+
+## Courbe d’activité quotidienne
+
+Graphique en courbes sous les cartes : installations **terminées** (vert) et **planifiées** (bleu) par jour sur la période.
+
+Beaucoup de planifications mais peu de complétions le même jour peut signaler des reports ou des problèmes de disponibilité. Une courbe des terminées qui monte avec des planifications stables indique que le backlog se consomme.
+
+## Répartition par type d’appareil
+
+Diagramme circulaire : part de chaque catégorie (serrures, caméras, thermostats, packs capteurs, etc.) selon les quantités installées sur la période.
+
+Si une catégorie domine, vérifiez certifications des techniciens et stock matériel adapté.
+
+## Interpréter le taux de complétion
+
+<AccordionGroup>
+  <Accordion title="Pourquoi mon taux est-il bas ?">
+    De nombreuses nouvelles planifications augmentent le total sans encore alimenter les terminées — courant en phase de croissance. Revérifiez après clôture de ces chantiers.
+  </Accordion>
+  <Accordion title="Lien avec la capacité équipe ?">
+    Avec une durée moyenne d’environ 2,2 h, un technicien peut enchaîner typiquement trois à quatre chantiers sur une journée standard. Comparez backlog et heures disponibles pour dimensionner l’équipe.
+  </Accordion>
+  <Accordion title="Qu’inclut le backlog ?">
+    Tout dossier non terminé et non annulé, y compris les planifications futures — mesure prospective de l’engagement.
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Un taux de complétion durablement inférieur à 70 % peut impacter votre positionnement partenaire. En cas de baisse prolongée, revoyez planification et disponibilités, et contactez votre chargé de compte HeyZack si besoin.
+</Warning>
+
+## Pour aller plus loin
+
+<CardGroup cols={2}>
+  <Card title="Vue d’ensemble des rapports" icon="chart-bar" href="/reports/overview">
+    Les cinq catégories et l’export de données
+  </Card>
+  <Card title="Rapports financiers" icon="dollar-sign" href="/reports/financial-reports">
+    Chiffre d’affaires, commissions et paliers partenaire
+  </Card>
+</CardGroup>

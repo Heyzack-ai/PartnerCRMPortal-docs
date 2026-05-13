@@ -1,0 +1,71 @@
+---
+title: "Gestion des installations dans le portail partenaire"
+description: "Consulter, rechercher et piloter chaque installation maison connectée — de la planification à l’accord client — au même endroit."
+---
+
+La section **Installations** donne une vue complète de chaque chantier planifié ou terminé : client, technicien affecté, date, statut, notes et adresse. Vue liste ou calendrier pour suivre jour après jour.
+
+## Contenu d’un dossier d’installation
+
+| Champ | Description |
+|---|---|
+| **Client** | Nom, e-mail, téléphone et adresse d’intervention |
+| **Technicien** | Membre d’équipe affecté |
+| **Date prévue** | Date et heure réservées |
+| **Statut** | Étape courante du flux |
+| **Notes** | Notes internes tout au long du chantier |
+| **Adresse** | Adresse de site issue de la fiche client |
+
+## Cartes de synthèse par statut
+
+En tête de page, des cartes comptent les dossiers par groupe :
+
+- **Total** — toutes les installations
+- **Planifié** — réservé, technicien pas encore parti
+- **En route** — technicien en déplacement
+- **En cours** — travail actif, y compris étapes contractuelles
+- **Approuvé** — travail approuvé par le client
+- **Rejeté** — annulé ou refusé
+
+Cliquer sur une carte ne filtre pas la liste. Utilisez la liste déroulante **Statut** dans la barre de filtres.
+
+## Deux modes d’affichage
+
+<Tabs>
+  <Tab title="Vue liste">
+    Par défaut : liste paginée triée par date de réservation (plus récent en premier). Chaque ligne : client, badge de statut, adresse, date, technicien, dernière note. **Voir le détail** ouvre la fiche complète.
+
+    Actions sur la ligne : **Affecter**, **Réaffecter**, **Rejeter** sans ouvrir le détail.
+  </Tab>
+  <Tab title="Vue calendrier">
+    Passez en **Calendrier** pour afficher les chantiers en mois, semaine ou jour. Les dates occupées sont mises en évidence selon le statut. Un clic sur une date ouvre un panneau avec la liste des installations (client, heure, adresse, technicien).
+
+    <Note>
+      Le filtre plage de dates n’est disponible qu’en vue liste. En calendrier, il est masqué automatiquement.
+    </Note>
+  </Tab>
+</Tabs>
+
+## Recherche et filtres
+
+- **Recherche** — extrait du nom client, technicien ou titre d’installation
+- **Statut** — groupe (Planifié, En route, En cours, Approuvé, Rejeté)
+- **Plage de dates** — bornes de début et fin sur la date prévue
+
+<Tip>
+  Combinez recherche et statut pour retrouver rapidement un dossier client à une étape donnée.
+</Tip>
+
+## Pour aller plus loin
+
+<CardGroup cols={2}>
+  <Card title="Planifier une installation" icon="calendar-plus" href="/installations/scheduling">
+    Créer un dossier et définir la date
+  </Card>
+  <Card title="Comprendre les statuts" icon="circle-check" href="/installations/statuses">
+    Tous les statuts du flux et leur signification
+  </Card>
+  <Card title="Affecter un technicien" icon="hard-hat" href="/installations/handyman-assignment">
+    Affecter ou réaffecter un chantier ouvert
+  </Card>
+</CardGroup>

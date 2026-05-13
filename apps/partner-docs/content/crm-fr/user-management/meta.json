@@ -1,0 +1,7 @@
+{
+  "title": "Gestion des utilisateurs",
+  "pages": [
+    "users-roles",
+    "permissions"
+  ]
+}
